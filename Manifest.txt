@@ -1,0 +1,7 @@
+History.txt
+Manifest.txt
+README.txt
+Rakefile
+bin/weatherzone
+lib/weatherzone.rb
+test/test_weatherzone.rb
