@@ -16,10 +16,11 @@ class Test::Unit::TestCase
 
   # We don't want to attempt to run any tests unless these parameters have been set
   def verify_connection_parameters
-    connection = Weatherzone::Connection.instance
-    assert_not_equal "<your-username>", connection.username, "You haven't set a username"
-    assert_not_equal "<your-password>", connection.password, "You haven't set a password"
-    assert_not_equal "<your-sekret-keygen>", connection.key, "You haven't set a keygen"
+    returning Weatherzone::Connection.instance do |connection|
+      assert_not_equal "<your-username>", connection.username, "You haven't set a username"
+      assert_not_equal "<your-password>", connection.password, "You haven't set a password"
+      assert_not_equal "<your-sekret-keygen>", connection.key, "You haven't set a keygen"
+    end
   end
 
 end
