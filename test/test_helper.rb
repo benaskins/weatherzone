@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/../lib/weatherzone'
 
 class Test::Unit::TestCase
 
-  # Set three instance variables on the connection instance to test the service:
+  # All tests will fail until you set three instance variables on the connection instance:
   #   1) Your weatherzone username
   #   2) Your weatherzone password
   #   3) A method for generating a valid weatherzone key
