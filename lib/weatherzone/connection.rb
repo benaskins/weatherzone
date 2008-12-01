@@ -8,6 +8,13 @@ module Weatherzone
       @logger       = Logger.new(STDOUT)
       @logger.level = Logger::DEBUG
     end
+    
+    def self.connect(username=nil, password=nil, &block)
+      connection          = Weatherzone::Connection.instance
+      connection.username = username
+      connection.password = password
+      connection.keygen   = block
+    end
   
     def key
       @keygen.call
