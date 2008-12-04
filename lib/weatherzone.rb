@@ -5,6 +5,7 @@ require 'activesupport'
 require 'open-uri'
 require 'hpricot'
 require 'digest/md5'
+require 'timeout'
 
 require 'weatherzone/resource'
 

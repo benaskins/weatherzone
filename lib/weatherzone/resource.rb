@@ -19,6 +19,8 @@ module Weatherzone
     def self.find(element_name, params)
       response = @@connection.request(params)
       build_collection(element_name, response)
+    rescue Weatherzone::RequestFailed => e
+      @@connection.error(e.message)
     end
         
     def self.has_many(association, options={})
