@@ -38,11 +38,12 @@ module Weatherzone
       url = wz_url_for(params)
       debug("GET #{url}")
       timeout(1) do
-        cache.write(params, open(url) { |f| Hpricot.XML(f) } )
+        doc = open(url) { |f| Hpricot.XML(f) }
+        cache ? cache.write(params, doc) : doc
       end
     rescue Timeout::Error, SocketError
       debug("webservice connection failed, reading from cache")
-      cache.read(params) || raise(RequestFailed.new(url))
+      cache ? (cache.read(params) || raise(RequestFailed.new(url))) : raise(RequestFailed.new(url))
     end
     
     def debug(message)

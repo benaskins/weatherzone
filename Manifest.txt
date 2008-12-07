@@ -7,4 +7,7 @@ lib/weatherzone.rb
 lib/weatherzone/connection.rb
 lib/weatherzone/data_element.rb
 lib/weatherzone/resource.rb
+lib/weatherzone/resources/location.rb
+lib/weatherzone/resources/forecast.rb
+lib/weatherzone/resources/condition.rb
 test/test_weatherzone.rb
