@@ -14,7 +14,7 @@ class Location < Weatherzone::Resource
   end
   
   def self.find_by_name(location_name, options={})
-    super(:location, options.merge(:params => "&lt=aploc&ln=#{location_name}"))
+    find(:location, options.merge(:params => "&lt=aploc&ln=#{location_name}"))
   end
 
   def self.capital_cities(options={})
