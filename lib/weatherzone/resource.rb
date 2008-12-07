@@ -2,6 +2,13 @@ require 'weatherzone/connection'
 require 'weatherzone/data_element'
 
 module Weatherzone
+
+  INCLUDES_MAP = {
+    :forecasts => "fc=1",
+    :district_forecasts => "dist_fc=1",
+    :conditions => "obs=1"
+  } 
+
   class Resource
     
     class_inheritable_accessor :fields, :has_many_associations, :has_one_associations
@@ -16,7 +23,10 @@ module Weatherzone
       self.fields = args
     end
 
-    def self.find(element_name, params)
+    def self.find(element_name, options)
+      params = options[:params]
+      params += include_params(options[:include]) if options[:include]
+      
       response = @@connection.request(params)
       build_collection(element_name, response)
     rescue Weatherzone::RequestFailed => e
@@ -52,6 +62,21 @@ module Weatherzone
       build_associations(element)
     end
 
+    def [](key)
+      @attributes[key.to_s]
+    end
+
+    protected
+    def self.include_params(includes)
+      includes.inject("") do |params, relationship|
+        if param = INCLUDES_MAP[relationship]
+          params += "&#{param}"
+        else
+          params
+        end
+      end
+    end
+
     def build_associations(element)
       build_has_many_associations(element)
       build_has_one_associations(element)
@@ -80,11 +105,7 @@ module Weatherzone
         klass.new(xml_forecast)
       end
     end
-    
-    def [](key)
-      @attributes[key.to_s]
-    end
-  
+      
     def method_missing(name)
       @fields[name.to_s]
     end    

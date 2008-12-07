@@ -6,7 +6,7 @@ class TestLocation < Test::Unit::TestCase
 
   def setup
     create_connection
-    @locations = Location.find("9770")
+    @locations = Location.find("9770", :include => [:conditions, :forecasts, :district_forecasts])
     @location  = @locations.first
   end
   
@@ -30,6 +30,16 @@ class TestLocation < Test::Unit::TestCase
 
   def test_should_have_conditions
     assert @location.conditions
+  end
+
+  def test_should_have_district_forecasts
+    assert @location.district_forecasts.any?    
+  end
+
+  def test_should_receive_each_specified_field_and_return_non_nil_values
+    Location.fields.each do |e|
+      assert_not_nil @location.send(e)
+    end
   end
 
 end

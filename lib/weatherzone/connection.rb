@@ -22,7 +22,7 @@ module Weatherzone
       connection.username = username
       connection.password = password
       connection.keygen   = block
-      connection.logger   = options[:logger] || Logger.new(STDOUT)
+      connection.logger   = options[:logger]
       connection.cache    = options[:cache]
     end
   
@@ -47,11 +47,11 @@ module Weatherzone
     end
     
     def debug(message)
-      @logger.debug("[weatherzone] #{message}")
+      @logger.debug("[weatherzone] #{message}") if @logger
     end
 
     def error(message)
-      @logger.error("[weatherzone] #{message}")
+      @logger.error("[weatherzone] #{message}") if @logger
     end
 
   end

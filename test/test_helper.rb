@@ -3,10 +3,13 @@ require File.dirname(__FILE__) + '/../lib/weatherzone'
 
 class Test::Unit::TestCase
 
-  # All tests will fail until you set three instance variables on the connection instance:
+  # All tests will fail until you pass valid parameters to Weatherzone::Connection.connect
   #   1) Your weatherzone username
   #   2) Your weatherzone password
   #   3) A method for generating a valid weatherzone key
+  #
+  # The weatherzone connect method also accepts a :logger option, if you wish to see the urls generated to query the 
+  # weatherzone webservice then please set this option.
   def create_connection
     Weatherzone::Connection.connect("<your-username>", "<your-password>") do
       "<your-sekret-keygen>"
