@@ -19,8 +19,12 @@ class Location < Weatherzone::Resource
     find(nil, options.merge(:params => "&lt=aploc&ln=#{location_name}"))
   end
 
+  def self.filter(filter, options={})
+    find(nil, options.merge(:params => "&lt=twcid&lf=#{filter}"))    
+  end
+
   def self.capital_cities(options={})
-    find(nil, options.merge(:params => "&lt=twcid&lf=twccapcity"))
+    filter("twccapcity", options.merge(:params => "&lt=twcid"))
   end
 
   def id
