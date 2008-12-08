@@ -10,4 +10,5 @@ lib/weatherzone/resource.rb
 lib/weatherzone/resources/location.rb
 lib/weatherzone/resources/forecast.rb
 lib/weatherzone/resources/condition.rb
+lib/weatherzone/resources/district_forecast.rb
 test/test_weatherzone.rb
