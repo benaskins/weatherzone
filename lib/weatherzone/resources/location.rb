@@ -5,6 +5,8 @@ require 'weatherzone/resources/warning'
 
 class Location < Weatherzone::Resource  
 
+  has_elements "lat", "long", "elevation"
+
   has_many :forecasts
   has_many :district_forecasts
   has_one :conditions
@@ -12,6 +14,7 @@ class Location < Weatherzone::Resource
   
   def self.find(location, options={})
     options[:params] = options[:params] || "&code=#{location}"
+    options[:params] += "&latlon=1"
     super(:location, options)
   end
   
