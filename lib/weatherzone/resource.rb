@@ -7,7 +7,7 @@ module Weatherzone
     :forecasts => "fc=1",
     :district_forecasts => "dist_fc=1",
     :conditions => "obs=1",
-    :warnings => "warnings=1",
+    :warnings => "warn=1",
     :state_forecasts => "state_fc=1"
   } 
 
