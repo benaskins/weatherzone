@@ -29,6 +29,7 @@ module Weatherzone
       params   = options[:params]
       params  += include_params(options[:include]) if options[:include]
       params  += include_image(options[:image])    if options[:image]
+      params  += "&days=#{options[:days]}"         if options[:days]
       response = @@connection.request(params)
       build_collection(element_name, response)
     rescue Weatherzone::RequestFailed => e

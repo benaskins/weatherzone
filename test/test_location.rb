@@ -6,7 +6,11 @@ class TestLocation < Test::Unit::TestCase
 
   def setup
     create_connection
-    @locations = Location.find("9770", :include => [:conditions, :forecasts, :district_forecasts, :state_forecasts], :image => {:size => "640x480", :days => 0, :type => "syn"})
+    @locations = Location.find("9770", 
+                  :include => [:conditions, :forecasts, :district_forecasts, :state_forecasts], 
+                  :image => {:size => "640x480", :days => 0, :type => "syn"},
+                  :days => 1
+                 )
     @location  = @locations.first
   end
   
@@ -43,6 +47,10 @@ class TestLocation < Test::Unit::TestCase
   # TODO: Fix silly test, need to mock responses with cached xml so we can guarantee results
   def test_should_have_warnings_or_maybe_not
     assert @location.warnings.any? || @location.warnings.empty?
+  end
+
+  def test_should_only_have_one_day_for_each_forecast_type
+    assert_equal 1, @location.forecasts.length
   end
 
   def test_should_have_images
