@@ -6,7 +6,7 @@ class TestLocation < Test::Unit::TestCase
 
   def setup
     create_connection
-    @locations = Location.find("9770", :include => [:conditions, :forecasts, :district_forecasts], :image => {:size => "640x480", :days => 0, :type => "syn"})
+    @locations = Location.find("9770", :include => [:conditions, :forecasts, :district_forecasts, :state_forecasts], :image => {:size => "640x480", :days => 0, :type => "syn"})
     @location  = @locations.first
   end
   
@@ -33,6 +33,10 @@ class TestLocation < Test::Unit::TestCase
   end
 
   def test_should_have_district_forecasts
+    assert @location.district_forecasts.any?    
+  end
+
+  def test_should_have_state_forecasts
     assert @location.district_forecasts.any?    
   end
 

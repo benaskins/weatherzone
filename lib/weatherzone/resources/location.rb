@@ -1,5 +1,6 @@
 require 'weatherzone/resources/forecast'
 require 'weatherzone/resources/district_forecast'
+require 'weatherzone/resources/state_forecast'
 require 'weatherzone/resources/condition'
 require 'weatherzone/resources/warning'
 require 'weatherzone/resources/image'
@@ -10,6 +11,7 @@ class Location < Weatherzone::Resource
 
   has_many :forecasts
   has_many :district_forecasts
+  has_many :state_forecasts
   has_one :conditions
   has_many :warnings
   has_many :images
