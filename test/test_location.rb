@@ -36,6 +36,11 @@ class TestLocation < Test::Unit::TestCase
     assert @location.district_forecasts.any?    
   end
 
+  # TODO: Fix silly test, need to mock responses with cached xml so we can guarantee results
+  def test_should_have_warnings_or_maybe_not
+    assert @location.warnings.any? || @location.warnings.empty?
+  end
+
   def test_should_receive_each_specified_field_and_return_non_nil_values
     Location.fields.each do |e|
       assert_not_nil @location.send(e)

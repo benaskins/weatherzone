@@ -24,9 +24,8 @@ module Weatherzone
     end
 
     def self.find(element_name, options)
-      params = options[:params]
-      params += include_params(options[:include]) if options[:include]
-      
+      params   = options[:params]
+      params  += include_params(options[:include]) if options[:include]
       response = @@connection.request(params)
       build_collection(element_name, response)
     rescue Weatherzone::RequestFailed => e

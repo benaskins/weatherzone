@@ -1,12 +1,14 @@
 require 'weatherzone/resources/forecast'
 require 'weatherzone/resources/district_forecast'
 require 'weatherzone/resources/condition'
+require 'weatherzone/resources/warning'
 
 class Location < Weatherzone::Resource  
 
   has_many :forecasts
   has_many :district_forecasts
   has_one :conditions
+  has_many :warnings
   
   def self.find(location, options={})
     options[:params] = options[:params] || "&code=#{location}"
