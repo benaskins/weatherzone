@@ -6,7 +6,8 @@ module Weatherzone
   INCLUDES_MAP = {
     :forecasts => "fc=1",
     :district_forecasts => "dist_fc=1",
-    :conditions => "obs=1"
+    :conditions => "obs=1",
+    :warnings => "warnings=1"
   } 
 
   class Resource
