@@ -6,7 +6,7 @@ class TestLocation < Test::Unit::TestCase
 
   def setup
     create_connection
-    @locations = Location.find("9770", :include => [:conditions, :forecasts, :district_forecasts])
+    @locations = Location.find("9770", :include => [:conditions, :forecasts, :district_forecasts], :image => {:size => "640x480", :days => 0, :type => "syn"})
     @location  = @locations.first
   end
   
@@ -39,6 +39,10 @@ class TestLocation < Test::Unit::TestCase
   # TODO: Fix silly test, need to mock responses with cached xml so we can guarantee results
   def test_should_have_warnings_or_maybe_not
     assert @location.warnings.any? || @location.warnings.empty?
+  end
+
+  def test_should_have_images
+    assert @location.images.any?
   end
 
   def test_should_receive_each_specified_field_and_return_non_nil_values

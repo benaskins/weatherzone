@@ -27,6 +27,7 @@ module Weatherzone
     def self.find(element_name, options)
       params   = options[:params]
       params  += include_params(options[:include]) if options[:include]
+      params  += include_image(options[:image])    if options[:image]
       response = @@connection.request(params)
       build_collection(element_name, response)
     rescue Weatherzone::RequestFailed => e
@@ -75,6 +76,10 @@ module Weatherzone
           params
         end
       end
+    end
+    
+    def self.include_image(image)
+      "&images=#{image[:type]}(days=#{image[:days]};size=#{image[:size]})"   
     end
 
     def build_associations(element)
