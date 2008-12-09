@@ -1,11 +1,13 @@
 require File.dirname(__FILE__) + '/test_helper.rb'
 
 require 'weatherzone/resources/location.rb'
+require 'mocha'
 
 class TestLocation < Test::Unit::TestCase
 
   def setup
     create_connection
+    Weatherzone::Connection.instance.stubs(:request).returns( File.open("test/response/locations.xml") { |f| Hpricot.XML(f) } )
     @locations = Location.find("9770", 
                   :include => [:conditions, :forecasts, :district_forecasts, :state_forecasts], 
                   :image => {:size => "640x480", :days => 0, :type => "syn"},
@@ -44,9 +46,8 @@ class TestLocation < Test::Unit::TestCase
     assert @location.district_forecasts.any?    
   end
 
-  # TODO: Fix silly test, need to mock responses with cached xml so we can guarantee results
   def test_should_have_warnings_or_maybe_not
-    assert @location.warnings.any? || @location.warnings.empty?
+    assert @location.warnings.any?
   end
 
   def test_should_only_have_one_day_for_each_forecast_type

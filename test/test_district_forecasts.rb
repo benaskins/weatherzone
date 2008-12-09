@@ -10,7 +10,7 @@ class TestDistrictForecast < Test::Unit::TestCase
   end
   
   def test_should_exist
-    assert @district_forecast.is_a? DistrictForecast
+    assert @district_forecast.is_a?(DistrictForecast)
   end
   
   def test_should_receive_each_specified_field_and_return_non_nil_values

@@ -10,7 +10,7 @@ class TestForecast < Test::Unit::TestCase
   end
   
   def test_should_exist
-    assert @forecast.is_a? Forecast
+    assert @forecast.is_a?(Forecast)
   end
   
   def test_should_receive_each_specified_field_and_return_non_nil_values

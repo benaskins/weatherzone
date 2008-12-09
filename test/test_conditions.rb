@@ -10,7 +10,7 @@ class TestCondition < Test::Unit::TestCase
   end
   
   def test_should_exist
-    assert @conditions.is_a? Condition
+    assert @conditions.is_a?(Condition)
   end
   
   def test_should_receive_each_specified_field_and_return_non_nil_values

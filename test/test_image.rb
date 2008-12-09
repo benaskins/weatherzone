@@ -10,7 +10,7 @@ class TestImage < Test::Unit::TestCase
   end
   
   def test_should_exist
-    assert @image.is_a? Image
+    assert @image.is_a?(Image)
   end
   
   def test_should_receive_each_specified_field_and_return_non_nil_values
