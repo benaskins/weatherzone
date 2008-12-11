@@ -5,4 +5,9 @@ class Forecast < Weatherzone::Resource
     options[:params] = options[:params] || "code=#{location}&fc=1"
     super(:forecast, options)
   end
+
+  def icon_name
+    icon[:file_name].split(".").first
+  end
+
 end

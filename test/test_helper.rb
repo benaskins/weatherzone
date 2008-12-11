@@ -1,6 +1,13 @@
 require 'test/unit'
 require File.dirname(__FILE__) + '/../lib/weatherzone'
 
+require 'weatherzone/resources/forecast'
+require 'weatherzone/resources/district_forecast'
+require 'weatherzone/resources/state_forecast'
+require 'weatherzone/resources/condition'
+require 'weatherzone/resources/warning'
+require 'weatherzone/resources/image'
+
 class Test::Unit::TestCase
 
   # All tests will fail until you pass valid parameters to Weatherzone::Connection.connect

@@ -1,10 +1,3 @@
-require 'weatherzone/resources/forecast'
-require 'weatherzone/resources/district_forecast'
-require 'weatherzone/resources/state_forecast'
-require 'weatherzone/resources/condition'
-require 'weatherzone/resources/warning'
-require 'weatherzone/resources/image'
-
 class Location < Weatherzone::Resource  
 
   has_elements "lat", "long", "elevation"
@@ -37,5 +30,22 @@ class Location < Weatherzone::Resource
   def id
     @attributes["code"]
   end
+
+  def current_district_forecast
+    @current_district_forecast ||= district_forecasts.first
+  end
+  
+  def current_district_forecast_precis
+    current_district_forecast ? current_district_forecast.precis : "District forecast not available"
+  end
+
+  def current_state_forecast
+    @current_state_forecast ||= state_forecasts.first
+  end
+  
+  def current_state_forecast_precis
+    current_state_forecast ? current_state_forecast.precis : "State forecast not available"
+  end
+
 
 end
