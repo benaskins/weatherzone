@@ -68,9 +68,13 @@ module Weatherzone
       @fields = {}
       @attributes = element.attributes
       self.class.fields.each do |field|
-        @fields[field] = DataElement.new((element/field.to_sym)[0])
+        @fields[field] = DataElement.new(field, (element/field.to_sym)[0])
       end
       build_associations(element)
+    end
+    
+    def unavailable?
+      @fields.all? { |field_name, data_element| data_element.unavailable? }
     end
 
     def [](key)

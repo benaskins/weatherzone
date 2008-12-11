@@ -10,10 +10,14 @@ module Weatherzone
   class DataElement
     attr_reader :value, :name
   
-    def initialize(xml_elem)
-      @name       = xml_elem.name
-      @value      = xml_elem ? xml_elem.inner_html : nil
-      @attributes = xml_elem ? xml_elem.attributes : nil
+    def initialize(name, xml_elem)
+      @name       = name
+      @value      = xml_elem ? xml_elem.inner_html : "n/a"
+      @attributes = xml_elem ? xml_elem.attributes : {}
+    end
+    
+    def unavailable?
+      @value == "n/a"
     end
   
     def inspect
