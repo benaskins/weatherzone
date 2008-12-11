@@ -74,7 +74,7 @@ module Weatherzone
     end
     
     def hash
-      @fields.collect { |field_name, data_element| v.hash }.hash
+      @fields.collect { |field_name, data_element| data_element.hash }.hash
     end
 
     def eql?(other)
