@@ -74,7 +74,11 @@ module Weatherzone
     end
     
     def unavailable?
-      @fields.all? { |field_name, data_element| data_element.unavailable? }
+      @unavailable ||= @fields.all? { |field_name, data_element| data_element.unavailable? }
+    end
+
+    def available?
+      !unavailable?
     end
 
     def [](key)
