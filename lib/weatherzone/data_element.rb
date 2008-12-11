@@ -12,13 +12,8 @@ module Weatherzone
   
     def initialize(name, xml_elem)
       @name       = name
-      if !xml_elem || xml_elem.inner_html.blank?
-        @value      = "n/a"
-        @attributes = {}
-      else
-        @value      = xml_elem.inner_html
-        @attributes = xml_elem.attributes
-      end
+      @value      = (!xml_elem || xml_elem.inner_html.blank?) ? "n/a" : xml_elem.inner_html
+      @attributes = xml_elem ? xml_elem.attributes : {}
     end
     
     def unavailable?
