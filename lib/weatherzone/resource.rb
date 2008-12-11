@@ -3,6 +3,14 @@ require 'weatherzone/data_element'
 
 module Weatherzone
 
+  class DataElementNotAvailable < Exception
+    attr_reader :message
+    def initialize(resource_name, data_element_name)
+      @message = "Data Element '#{data_element_name}' not available for '#{resource_name}'"
+    end
+  end
+
+
   INCLUDES_MAP = {
     :forecasts => "fc=1",
     :district_forecasts => "dist_fc=1",
@@ -114,7 +122,7 @@ module Weatherzone
     end
       
     def method_missing(name)
-      @fields[name.to_s]
+      @fields[name.to_s] || raise(DataElementNotAvailable.new(self.class.name, name))
     end    
         
   end

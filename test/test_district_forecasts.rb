@@ -19,4 +19,10 @@ class TestDistrictForecast < Test::Unit::TestCase
     end
   end
 
+  def test_should_raise_exception_on_invalid_field_name
+    assert_raises Weatherzone::DataElementNotAvailable do
+      @district_forecast.nonsense_field
+    end
+  end
+
 end

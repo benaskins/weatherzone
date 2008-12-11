@@ -21,4 +21,10 @@ class TestWarning < Test::Unit::TestCase
     end
   end
 
+  def test_should_raise_exception_on_invalid_field_name
+    assert_raises Weatherzone::DataElementNotAvailable do
+      @warning.nonsense_field
+    end
+  end
+
 end

@@ -64,4 +64,11 @@ class TestLocation < Test::Unit::TestCase
     end
   end
 
+
+  def test_should_raise_exception_on_invalid_field_name
+    assert_raises Weatherzone::DataElementNotAvailable do
+      @location.nonsense_field
+    end
+  end
+
 end

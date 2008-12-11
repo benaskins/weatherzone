@@ -1,10 +1,19 @@
-module Weatherzone  
+module Weatherzone
+  
+  class AttributeNotAvailable < Exception
+    attr_reader :message
+    def initialize(elem_name, attr_name)
+      @message = "Attribute '#{attr_name}' not available for '#{elem_name}'"
+    end
+  end
+  
   class DataElement
-    attr_reader :value
+    attr_reader :value, :name
   
     def initialize(xml_elem)
-      @value      = xml_elem.inner_html
-      @attributes = xml_elem.attributes
+      @name       = xml_elem.name
+      @value      = xml_elem ? xml_elem.inner_html : nil
+      @attributes = xml_elem ? xml_elem.attributes : nil
     end
   
     def inspect
@@ -15,8 +24,16 @@ module Weatherzone
       @value
     end
   
+    def at(name)
+      @attributes[name.to_s] || raise(AttributeNotAvailable.new(self.name, name))
+    end
+  
     def [](key)
-      @attributes[key.to_s]
+      at(key)
+    end
+    
+    def method_missing(name)
+      at(name)
     end
   end
 end
