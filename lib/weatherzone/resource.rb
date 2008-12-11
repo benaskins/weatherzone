@@ -73,6 +73,15 @@ module Weatherzone
       build_associations(element)
     end
     
+    def hash
+      @fields.collect { |field_name, data_element| v.hash }.hash
+    end
+
+    def eql?(other)
+      self.hash == other.hash
+    end
+    
+    
     def unavailable?
       @unavailable ||= @fields.all? { |field_name, data_element| data_element.unavailable? }
     end
@@ -130,7 +139,7 @@ module Weatherzone
     end
       
     def method_missing(name)
-      @fields[name.to_s] || raise(DataElementNotAvailable.new(self.class.name, name))
+      @fields[name.to_s] || @attributes[name.to_s] || raise(DataElementNotAvailable.new(self.class.name, name))
     end    
         
   end

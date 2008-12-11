@@ -16,6 +16,18 @@ module Weatherzone
       @attributes = xml_elem ? xml_elem.attributes : {}
     end
     
+    def hash
+      (@name + @value).hash
+    end
+
+    def eql?(other)
+      self.is_a?(other.class) && self.name.eql?(other.name) && self.value.eql?(other.value)
+    end
+
+    def ==(other)
+      self.to_s == other.to_s
+    end
+    
     def unavailable?
       @value == "n/a"
     end

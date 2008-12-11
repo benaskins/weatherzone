@@ -10,5 +10,5 @@ require 'timeout'
 require 'weatherzone/resource'
 
 module Weatherzone
-  VERSION = '0.2.4'
+  VERSION = '0.2.5'
 end
