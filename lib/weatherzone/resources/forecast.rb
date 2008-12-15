@@ -7,7 +7,11 @@ class Forecast < Weatherzone::Resource
   end
 
   def icon_name
-    icon[:file_name].split(".").first
+    icon[:filename].split(".").first
+  end
+
+  def abbr_day_name
+    self.day_name.to_s[0..2]
   end
 
 end
