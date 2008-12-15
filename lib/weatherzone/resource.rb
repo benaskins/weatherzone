@@ -13,6 +13,7 @@ module Weatherzone
 
   INCLUDES_MAP = {
     :forecasts => "fc=1",
+    :point_forecasts => "fc=3",
     :district_forecasts => "dist_fc=1",
     :conditions => "obs=1",
     :warnings => "warn=1",

@@ -2,6 +2,7 @@ require 'test/unit'
 require File.dirname(__FILE__) + '/../lib/weatherzone'
 
 require 'weatherzone/resources/forecast'
+require 'weatherzone/resources/point_forecast'
 require 'weatherzone/resources/district_forecast'
 require 'weatherzone/resources/state_forecast'
 require 'weatherzone/resources/condition'
