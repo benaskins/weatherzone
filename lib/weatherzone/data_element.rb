@@ -58,6 +58,7 @@ module Weatherzone
         to_s.send(name, *args)
       else
         at(name)
+      end
     end
     
   end
