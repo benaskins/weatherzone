@@ -9,6 +9,7 @@ lib/weatherzone/data_element.rb
 lib/weatherzone/resource.rb
 lib/weatherzone/resources/location.rb
 lib/weatherzone/resources/forecast.rb
+lib/weatherzone/resources/point_forecast.rb
 lib/weatherzone/resources/condition.rb
 lib/weatherzone/resources/district_forecast.rb
 lib/weatherzone/resources/state_forecast.rb

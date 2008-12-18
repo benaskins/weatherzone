@@ -7,4 +7,9 @@ class Condition < Weatherzone::Resource
     options[:params] = options[:params] || "code=#{location}&obs=1"
     super(:conditions, options)
   end
+
+  def rainfall
+    rainfall_mm.available? ? "#{self.rainfall_mm}#{self.rainfall_mm[:units]}" : "n/a"
+  end
+
 end

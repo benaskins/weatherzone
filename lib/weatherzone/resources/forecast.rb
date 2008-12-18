@@ -1,5 +1,7 @@
 class Forecast < Weatherzone::Resource
   has_elements "day_name", "date", "temp_min_c", "temp_max_c", "prob_precip", "icon"
+
+  has_many :point_forecasts
   
   def self.find(location, options={})
     options[:params] = options[:params] || "code=#{location}&fc=1"
@@ -7,7 +9,11 @@ class Forecast < Weatherzone::Resource
   end
 
   def icon_name
-    icon[:file_name].split(".").first
+    icon[:filename].split(".").first
+  end
+
+  def abbr_day_name
+    self.day_name.to_s[0..2]
   end
 
 end
