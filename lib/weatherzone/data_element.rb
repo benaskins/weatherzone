@@ -52,8 +52,13 @@ module Weatherzone
       at(key)
     end
     
-    def method_missing(name)
-      at(name)
+    def method_missing(name, *args)
+      # Try delegating to to_s, otherwise look for an attribute
+      if to_s.respond_to?(name)
+        to_s.send(name, *args)
+      else
+        at(name)
     end
+    
   end
 end
