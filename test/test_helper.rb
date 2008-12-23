@@ -20,8 +20,8 @@ class Test::Unit::TestCase
   # weatherzone webservice then please set this option.
   def create_connection
     Weatherzone::Connection.connect("<your-username>", "<your-password>") do
-      "<your-sekret-keygen>"
-    end
+      "<your-sekret-keygen>"    
+    end  
     verify_connection_parameters
   end
 

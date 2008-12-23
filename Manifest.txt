@@ -15,4 +15,5 @@ lib/weatherzone/resources/district_forecast.rb
 lib/weatherzone/resources/state_forecast.rb
 lib/weatherzone/resources/warning.rb
 lib/weatherzone/resources/image.rb
+lib/weatherzone/resources/moon_phase.rb
 test/test_weatherzone.rb

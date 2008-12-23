@@ -1,6 +1,6 @@
 class Forecast < Weatherzone::Resource
   has_elements "day_name", "date", "temp_min_c", "temp_max_c", "prob_precip", "icon",
-    "rain_range_text", "frost_risk_text", "uv"
+    "rain_range_text", "frost_risk_text", "uv", "first_light", "sunrise", "sunset", "last_light"
 
   has_many :point_forecasts
   
