@@ -1,5 +1,6 @@
 class Forecast < Weatherzone::Resource
-  has_elements "day_name", "date", "temp_min_c", "temp_max_c", "prob_precip", "icon"
+  has_elements "day_name", "date", "temp_min_c", "temp_max_c", "prob_precip", "icon",
+    "rain_range_text", "frost_risk_text", "uv"
 
   has_many :point_forecasts
   
@@ -14,6 +15,22 @@ class Forecast < Weatherzone::Resource
 
   def abbr_day_name
     self.day_name.to_s[0..2]
+  end
+
+  def chance_of_rain
+    "#{self.prob_precip}#{self.prob_precip.units}"
+  end
+
+  def date
+    Date.parse(@fields["date"].value)
+  end
+
+  def min_rain
+    self.rain_range_text.split("-")[0].to_i
+  end
+
+  def max_rain
+    self.rain_range_text.split("-")[1].to_i
   end
 
 end
