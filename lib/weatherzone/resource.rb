@@ -18,8 +18,8 @@ module Weatherzone
     :warnings => "warn=1",
     :state_forecasts => "state_fc=1",
     :uv_index => "uv=1",
-    :sun => "fc_sun=1",
-    :moon => "moon=1"
+    :sun => "fc_sun=2",
+    :moon => "fc_moon=1"
   } 
 
   class Resource

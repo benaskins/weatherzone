@@ -44,8 +44,12 @@ module Weatherzone
       @value
     end
   
+    def to_param
+      @value.downcase
+    end
+  
     def at(name)
-      @attributes[name.to_s] || raise(AttributeNotAvailable.new(self.name, name))
+      @attributes[name.to_s] || "n/a"
     end
   
     def [](key)

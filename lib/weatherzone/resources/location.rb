@@ -10,7 +10,7 @@ class Location < Weatherzone::Resource
   has_many :images
   
   def self.find(location, options={})
-    options[:params] = options[:params] || "&code=#{location}"
+    options[:params] = options[:params] || "&lc=#{location}"
     options[:params] += "&latlon=1"
     super(:location, options)
   end
@@ -32,12 +32,16 @@ class Location < Weatherzone::Resource
     @attributes["code"]
   end
 
+  def current_forecast
+    @current_forecast ||= forecasts.first
+  end
+
   def current_district_forecast
     @current_district_forecast ||= district_forecasts.first
   end
   
   def current_district_forecast_precis
-    current_district_forecast.available? ? current_district_forecast.precis : "District forecast unavailable"  
+    current_district_forecast && current_district_forecast.available? ? current_district_forecast.precis : "District forecast unavailable"  
   end
 
   def current_state_forecast
@@ -45,7 +49,7 @@ class Location < Weatherzone::Resource
   end
   
   def current_state_forecast_precis
-    current_state_forecast.available? ? current_state_forecast.precis : "State forecast unavailable"
+    current_state_forecast && current_state_forecast.available? ? current_state_forecast.precis : "State forecast unavailable"
   end
 
   def current_synoptic_chart
@@ -53,7 +57,7 @@ class Location < Weatherzone::Resource
   end
 
   def current_synoptic_chart_text
-    current_synoptic_chart.available? ? current_synoptic_chart.text : "Synoptic chart unavailable"
+    current_synoptic_chart && current_synoptic_chart.available? ? current_synoptic_chart.text : "Synoptic chart unavailable"
   end
   
   def position
@@ -62,10 +66,6 @@ class Location < Weatherzone::Resource
 
   def url_slug
     self.name.parameterize
-  end
-
-  def id
-    @attributes["code"]
   end
 
 end
