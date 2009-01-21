@@ -42,7 +42,7 @@ module Weatherzone
       url = wz_url_for(params)
       debug("GET #{url}")
       timeout(self.timeout_after) do
-        response = open(url)
+        response = OpenURI::open(url)
         doc = Hpricot.XML(response)
         cache ? cache.write(params, doc) : doc
       end
