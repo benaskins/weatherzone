@@ -42,7 +42,8 @@ module Weatherzone
       url = wz_url_for(params)
       debug("GET #{url}")
       timeout(self.timeout_after) do
-        doc = open(url) { |f| Hpricot.XML(f) }
+        response = open(url)
+        doc = Hpricot.XML(response)
         cache ? cache.write(params, doc) : doc
       end
     rescue Timeout::Error, SocketError
