@@ -44,7 +44,8 @@ module Weatherzone
       timeout(self.timeout_after) do
         response = OpenURI::open(url)
         doc = Hpricot.XML(response)
-        cache ? cache.write(params, doc) : doc
+        cache.write(params, doc) if cache
+        doc
       end
     rescue Timeout::Error, SocketError
       debug("webservice connection failed, reading from cache")
