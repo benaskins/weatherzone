@@ -7,9 +7,9 @@ require 'digest/md5'
 require 'timeout'
 
 begin
-  require 'openuri_memcached'
-  # Cache for 10 minutes, the web service cache's for the same period so this ensures we've always got
-  # the freshest data and the speediest responses
+  require 'openuri/memcached'
+  # Cache for 10 minutes. The web service caches for the same period, so this ensures we've always got
+  # the freshest data and the speediest response.
   OpenURI::Cache.expiry = 60 * 10
   OpenURI::Cache.enable!
 rescue LoadError
@@ -19,6 +19,6 @@ end
 require 'weatherzone/resource'
 
 module Weatherzone
-  VERSION = '0.3.0'
+  VERSION = '0.3.1'
 end
 
