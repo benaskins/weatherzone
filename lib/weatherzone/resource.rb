@@ -37,10 +37,10 @@ module Weatherzone
     end
 
     def self.find(element_name, options)
-      params   = options[:params]
-      params  += include_params(options[:include]) if options[:include]
-      params  += include_image(options[:image])    if options[:image]
-      params  += "&days=#{options[:days]}"         if options[:days]
+      params   = options.delete(:params)
+      params  += include_params(options.delete(:include)) if options[:include]
+      params  += include_image(options.delete(:image))    if options[:image]
+      params  += parse_params(options) unless options.empty?
       response = @@connection.request(params)
       build_collection(element_name, response)
     rescue Weatherzone::RequestFailed => e
@@ -112,6 +112,12 @@ module Weatherzone
       "&images=#{image[:type]}(days=#{image[:days]};size=#{image[:size]})"   
     end
 
+    def self.parse_params(options)
+      options.inject("") do |params, (key, value)|
+        params += "&#{key}=#{value}"
+      end      
+    end
+
     def build_associations(element)
       build_has_many_associations(element)
       build_has_one_associations(element)
@@ -120,7 +126,7 @@ module Weatherzone
     def build_has_many_associations(element)
       has_many_associations.each do |association, options|
         element_name = options[:element] || association.to_s.singularize.to_sym
-        klass = element_name.to_s.classify.constantize
+        klass = class_name_from_options_or_implied(options, element_name) 
         ivar = "@#{association}".to_sym
         instance_variable_set(ivar, build_association(element, element_name, klass))
       end  
@@ -129,7 +135,7 @@ module Weatherzone
     def build_has_one_associations(element)
       has_one_associations.each do |association, options|
         element_name = options[:element] || association
-        klass = element_name.to_s.classify.constantize
+        klass = class_name_from_options_or_implied(options, element_name) 
         ivar = "@#{association}".to_sym
         instance_variable_set(ivar, build_association(element, element_name, klass).first)
       end  
@@ -144,6 +150,9 @@ module Weatherzone
     def method_missing(name)
       @fields[name.to_s] || @attributes[name.to_s] || raise(DataElementNotAvailable.new(self.class.name, name))
     end    
-        
+    
+    def class_name_from_options_or_implied(options, element_name)
+       options[:class_name] ? options[:class_name].constantize : element_name.to_s.classify.constantize 
+    end
   end
 end
