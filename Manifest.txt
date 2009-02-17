@@ -18,4 +18,5 @@ lib/weatherzone/resources/image.rb
 lib/weatherzone/resources/moon_phase.rb
 lib/weatherzone/resources/news_item.rb
 lib/weatherzone/resources/historical_observation.rb
+lib/weatherzone/resources/daily_observation.rb
 test/test_weatherzone.rb
