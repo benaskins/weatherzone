@@ -20,6 +20,39 @@
           <lat units="°N">-34.9231</lat>
           <long units="°E">138.6206</long>
           <elevation units="m">48</elevation>
+          <historical_observations>
+          <historical_observation>
+          <obs_time_utc tz="UTC">2009-02-11T03:52:00</obs_time_utc>
+          <obs_time_local tz="EDT">2009-02-11T14:52:00</obs_time_local>
+          <temp_c units="°C">22.8</temp_c>
+          <dp_c units="°C">15.1</dp_c>
+          <rh units="%">62</rh>
+          <wind_dir_degrees units="°">190</wind_dir_degrees>
+          <wind_dir_compass>S</wind_dir_compass>
+          <wind_speed_kph units="km/h">22</wind_speed_kph>
+          <wind_speed_kts units="kt">12</wind_speed_kts>
+          <wind_gust_kph units="km/h">37</wind_gust_kph>
+          <wind_gust_kts units="kt">20</wind_gust_kts>
+          <feels_like_c units="°C">22.8</feels_like_c>
+          <rainfall_mm period="since 9am" units="mm"/>
+          <pressure_qnh_hpa units="hPa">1011.3</pressure_qnh_hpa>
+          </historical_observation>
+          <historical_observation>
+          <obs_time_utc tz="UTC">2009-02-11T03:42:00</obs_time_utc>
+          <obs_time_local tz="EDT">2009-02-11T14:42:00</obs_time_local>
+          <temp_c units="°C">22.6</temp_c>
+          <dp_c units="°C">15.2</dp_c>
+          <rh units="%">63</rh>
+          <wind_dir_degrees units="°">197</wind_dir_degrees>
+          <wind_dir_compass>SSW</wind_dir_compass>
+          <wind_speed_kph units="km/h">24</wind_speed_kph>
+          <wind_speed_kts units="kt">13</wind_speed_kts>
+          <wind_gust_kph units="km/h">37</wind_gust_kph>
+          <wind_gust_kts units="kt">20</wind_gust_kts>
+          <feels_like_c units="°C">22.6</feels_like_c>
+          <rainfall_mm period="since 9am" units="mm"/>
+          <pressure_qnh_hpa units="hPa">1011.3</pressure_qnh_hpa>
+          </historical_observation>
           <warnings>
             <summary>One current warning</summary>
             <warning id="IDT20100" type="Coastal wind warning">
