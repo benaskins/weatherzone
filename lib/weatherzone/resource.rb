@@ -20,7 +20,8 @@ module Weatherzone
     :uv_index => "uv=1",
     :sun => "fc_sun=2",
     :moon => "fc_moon=1",
-    :historical_observations => "histobs=1"
+    :historical_observations => "histobs=1",
+    :daily_observations => "dlyobs=7"
   } 
 
   class Resource

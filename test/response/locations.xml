@@ -21,38 +21,53 @@
           <long units="°E">138.6206</long>
           <elevation units="m">48</elevation>
           <historical_observations>
-          <historical_observation>
-          <obs_time_utc tz="UTC">2009-02-11T03:52:00</obs_time_utc>
-          <obs_time_local tz="EDT">2009-02-11T14:52:00</obs_time_local>
-          <temp_c units="°C">22.8</temp_c>
-          <dp_c units="°C">15.1</dp_c>
-          <rh units="%">62</rh>
-          <wind_dir_degrees units="°">190</wind_dir_degrees>
-          <wind_dir_compass>S</wind_dir_compass>
-          <wind_speed_kph units="km/h">22</wind_speed_kph>
-          <wind_speed_kts units="kt">12</wind_speed_kts>
-          <wind_gust_kph units="km/h">37</wind_gust_kph>
-          <wind_gust_kts units="kt">20</wind_gust_kts>
-          <feels_like_c units="°C">22.8</feels_like_c>
-          <rainfall_mm period="since 9am" units="mm"/>
-          <pressure_qnh_hpa units="hPa">1011.3</pressure_qnh_hpa>
-          </historical_observation>
-          <historical_observation>
-          <obs_time_utc tz="UTC">2009-02-11T03:42:00</obs_time_utc>
-          <obs_time_local tz="EDT">2009-02-11T14:42:00</obs_time_local>
-          <temp_c units="°C">22.6</temp_c>
-          <dp_c units="°C">15.2</dp_c>
-          <rh units="%">63</rh>
-          <wind_dir_degrees units="°">197</wind_dir_degrees>
-          <wind_dir_compass>SSW</wind_dir_compass>
-          <wind_speed_kph units="km/h">24</wind_speed_kph>
-          <wind_speed_kts units="kt">13</wind_speed_kts>
-          <wind_gust_kph units="km/h">37</wind_gust_kph>
-          <wind_gust_kts units="kt">20</wind_gust_kts>
-          <feels_like_c units="°C">22.6</feels_like_c>
-          <rainfall_mm period="since 9am" units="mm"/>
-          <pressure_qnh_hpa units="hPa">1011.3</pressure_qnh_hpa>
-          </historical_observation>
+            <historical_observation>
+              <obs_time_utc tz="UTC">2009-02-11T03:52:00</obs_time_utc>
+              <obs_time_local tz="EDT">2009-02-11T14:52:00</obs_time_local>
+              <temp_c units="°C">22.8</temp_c>
+              <dp_c units="°C">15.1</dp_c>
+              <rh units="%">62</rh>
+              <wind_dir_degrees units="°">190</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">22</wind_speed_kph>
+              <wind_speed_kts units="kt">12</wind_speed_kts>
+              <wind_gust_kph units="km/h">37</wind_gust_kph>
+              <wind_gust_kts units="kt">20</wind_gust_kts>
+              <feels_like_c units="°C">22.8</feels_like_c>
+              <rainfall_mm period="since 9am" units="mm"/>
+              <pressure_qnh_hpa units="hPa">1011.3</pressure_qnh_hpa>
+            </historical_observation>
+            <historical_observation>
+              <obs_time_utc tz="UTC">2009-02-11T03:42:00</obs_time_utc>
+              <obs_time_local tz="EDT">2009-02-11T14:42:00</obs_time_local>
+              <temp_c units="°C">22.6</temp_c>
+              <dp_c units="°C">15.2</dp_c>
+              <rh units="%">63</rh>
+              <wind_dir_degrees units="°">197</wind_dir_degrees>
+              <wind_dir_compass>SSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">24</wind_speed_kph>
+              <wind_speed_kts units="kt">13</wind_speed_kts>
+              <wind_gust_kph units="km/h">37</wind_gust_kph>
+              <wind_gust_kts units="kt">20</wind_gust_kts>
+              <feels_like_c units="°C">22.6</feels_like_c>
+              <rainfall_mm period="since 9am" units="mm"/>
+              <pressure_qnh_hpa units="hPa">1011.3</pressure_qnh_hpa>
+            </historical_observation>
+          </historical_observations>
+          <daily_observations>
+            <day_name>Wednesday</day_name>
+            <date>2009-02-11</date>
+            <temp_min_c units="°C">16</temp_min_c>
+            <temp_max_c units="°C">24</temp_max_c>
+            <rainfall_mm period="24 hours to 9am" units="mm">24.4</rainfall_mm>
+          </daily_observations>
+          <daily_observations>
+            <day_name>Thursday</day_name>
+            <date>2009-02-12</date>
+            <temp_min_c units="°C">16</temp_min_c>
+            <temp_max_c units="°C">20</temp_max_c>
+            <rainfall_mm period="24 hours to 9am" units="mm">14.4</rainfall_mm>
+          </daily_observations>
           <warnings>
             <summary>One current warning</summary>
             <warning id="IDT20100" type="Coastal wind warning">
@@ -82,7 +97,8 @@
           <state_forecasts>
             <state_forecast period="1">
               <period_name>Tuesday.</period_name>
-              <precis>Isolated showers and thunderstorms in the north and west extending to most parts today before clearing from the west. Showers increasing to scattered northwest of about Leigh Creek. Mild to warm in the south grading to hot in the far northeast.</precis>            </state_forecast>
+              <precis>Isolated showers and thunderstorms in the north and west extending to most parts today before clearing from the west. Showers increasing to scattered northwest of about Leigh Creek. Mild to warm in the south grading to hot in the far northeast.</precis>
+            </state_forecast>
           </state_forecasts>
           <district_forecasts>
             <district_forecast period="1">
@@ -137,7 +153,8 @@
           <state_forecasts>
             <state_forecast period="1">
               <period_name>Tuesday</period_name>
-              <precis>Showers and thunderstorms over the northern tropics with a few showers along the remaining east coast. Fine elsewhere. Winds generally light to moderate SE to NE.</precis>            </state_forecast>
+              <precis>Showers and thunderstorms over the northern tropics with a few showers along the remaining east coast. Fine elsewhere. Winds generally light to moderate SE to NE.</precis>
+            </state_forecast>
           </state_forecasts>
           <district_forecasts>
             <district_forecast period="1">
@@ -192,7 +209,8 @@
           <state_forecasts>
             <state_forecast period="1">
               <period_name>Tuesday</period_name>
-              <precis>Isolated showers developing in the far southwest during the afternoon, extending east and reaching southern coastal parts during the evening. Possible late thunderstorms in the far southwest. Isolated showers about the far north coast, gradually clearing.</precis>            </state_forecast>
+              <precis>Isolated showers developing in the far southwest during the afternoon, extending east and reaching southern coastal parts during the evening. Possible late thunderstorms in the far southwest. Isolated showers about the far north coast, gradually clearing.</precis>
+            </state_forecast>
           </state_forecasts>
           <district_forecasts>
             <district_forecast period="1">
@@ -247,7 +265,8 @@
           <state_forecasts>
             <state_forecast period="1">
               <period_name>today and tonight</period_name>
-              <precis>Darwin Regional Forecasting Centre Forecast for the Northern Territory Northern Territory Situation... A ridge along the Queensland coast directs a humid easterly flow across the Top End.</precis>            </state_forecast>
+              <precis>Darwin Regional Forecasting Centre Forecast for the Northern Territory Northern Territory Situation... A ridge along the Queensland coast directs a humid easterly flow across the Top End.</precis>
+            </state_forecast>
           </state_forecasts>
           <district_forecasts>
             <district_forecast period="1">
@@ -309,7 +328,8 @@
           <state_forecasts>
             <state_forecast period="1">
               <period_name>midnight Tuesday  </period_name>
-              <precis>Isolated showers in the west increasing this morning. Isolated showers in the north extending to the remainder during afternoon. Showers then easing this evening and contracting to the northeast.</precis>            </state_forecast>
+              <precis>Isolated showers in the west increasing this morning. Isolated showers in the north extending to the remainder during afternoon. Showers then easing this evening and contracting to the northeast.</precis>
+            </state_forecast>
           </state_forecasts>
           <district_forecasts>
             <district_forecast period="1">
@@ -364,7 +384,8 @@
           <state_forecasts>
             <state_forecast period="1">
               <period_name/>
-              <precis/>            </state_forecast>
+              <precis/>
+            </state_forecast>
           </state_forecasts>
           <district_forecasts>
             <district_forecast period="1">
@@ -419,7 +440,8 @@
           <state_forecasts>
             <state_forecast period="1">
               <period_name>Tuesday</period_name>
-              <precis>Kimberley and northeastern Interior: Isolated showers and thunderstorms. Southwest Land Division: Isolated showers in the lower west and southern districts. Isolated thunderstorms developing in the south in the afternoon and evening.</precis>            </state_forecast>
+              <precis>Kimberley and northeastern Interior: Isolated showers and thunderstorms. Southwest Land Division: Isolated showers in the lower west and southern districts. Isolated thunderstorms developing in the south in the afternoon and evening.</precis>
+            </state_forecast>
           </state_forecasts>
           <district_forecasts>
             <district_forecast period="1">
@@ -481,7 +503,8 @@
           <state_forecasts>
             <state_forecast period="1">
               <period_name>Tuesday</period_name>
-              <precis>Isolated showers developing in the far southwest during the afternoon, extending east and reaching southern coastal parts during the evening. Possible late thunderstorms in the far southwest. Isolated showers about the far north coast, gradually clearing.</precis>            </state_forecast>
+              <precis>Isolated showers developing in the far southwest during the afternoon, extending east and reaching southern coastal parts during the evening. Possible late thunderstorms in the far southwest. Isolated showers about the far north coast, gradually clearing.</precis>
+            </state_forecast>
           </state_forecasts>
           <district_forecasts>
             <district_forecast period="1">

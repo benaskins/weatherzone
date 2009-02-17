@@ -7,6 +7,7 @@ class Location < Weatherzone::Resource
   has_many :state_forecasts
   has_one :conditions
   has_many :historical_observations
+  has_many :daily_observations, :element => :daily_observations
   has_many :warnings
   has_many :images
   

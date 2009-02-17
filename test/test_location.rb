@@ -9,7 +9,7 @@ class TestLocation < Test::Unit::TestCase
     create_connection
     Weatherzone::Connection.instance.stubs(:request).returns( File.open("test/response/locations.xml") { |f| Hpricot.XML(f) } )
     @locations = Location.find("9770", 
-                  :include => [:conditions, :forecasts, :district_forecasts, :state_forecasts, :historical_observations], 
+                  :include => [:conditions, :forecasts, :district_forecasts, :state_forecasts, :historical_observations, :daily_observations], 
                   :image => {:size => "640x480", :days => 0, :type => "syn"},
                   :days => 1
                  )
@@ -48,6 +48,10 @@ class TestLocation < Test::Unit::TestCase
 
   def test_should_have_historical_observations
     assert @location.historical_observations.any?    
+  end
+
+  def test_should_have_daily_observations
+    assert @location.daily_observations.any?    
   end
 
   def test_should_have_warnings_or_maybe_not
