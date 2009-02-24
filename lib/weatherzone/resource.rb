@@ -3,13 +3,6 @@ require 'weatherzone/data_element'
 
 module Weatherzone
 
-  class DataElementNotAvailable < Exception
-    attr_reader :message
-    def initialize(resource_name, data_element_name)
-      @message = "Data Element '#{data_element_name}' not available for '#{resource_name}'"
-    end
-  end
-
   class Resource
     
     include SAXMachine
