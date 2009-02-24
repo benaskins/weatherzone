@@ -1,27 +1,22 @@
 require File.dirname(__FILE__) + '/test_helper.rb'
 
-require 'weatherzone/resources/state_forecast.rb'
-
 class TestStateForecast < Test::Unit::TestCase
 
   def setup
-    create_connection
-    @state_forecast = StateForecast.find("9770").first
+    super
+    weather = Weather.find_location("9770")
+    country = weather.countries.first
+    location = country.locations.first
+    @state_forecast = location.state_forecasts.first
   end
   
-  def test_should_exist
-    assert @state_forecast.is_a?(StateForecast)
-  end
-  
-  def test_should_receive_each_specified_field_and_return_non_nil_values
-    StateForecast.fields.each do |e|
-      assert_not_nil @state_forecast.send(e)
-    end
+  def test_should_be_a_state_forecast
+    assert_kind_of StateForecast, @state_forecast
   end
 
-  def test_should_raise_exception_on_invalid_field_name
-    assert_raises Weatherzone::DataElementNotAvailable do
-      @state_forecast.nonsense_field
+  def test_should_not_have_nil_attributes
+    [:period_name, :precis].each do |attr_name|
+      assert_not_nil @state_forecast.send(attr_name), "@state_forecast should respond to #{attr_name}"
     end
   end
 

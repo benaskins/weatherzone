@@ -1,3 +1,5 @@
+require 'singleton'
+
 module Weatherzone  
   
   class RequestFailed < Exception
@@ -34,8 +36,12 @@ module Weatherzone
       @keygen.call
     end
     
+    def base_url
+      "http://webservice.theweather.com.au/ws1/wx.php?u=#{username}&k=#{key}"
+    end
+    
     def wz_url_for(params)
-      "http://webservice.theweather.com.au/ws1/wx.php?u=#{username}&k=#{key}&#{params}"
+      "#{base_url}&#{params}"
     end
     
     def request(params)
@@ -43,9 +49,8 @@ module Weatherzone
       debug("GET #{url}")
       timeout(self.timeout_after) do
         response = OpenURI::open(url)
-        doc = Hpricot.XML(response)
-        cache.write(params, doc) if cache
-        doc
+        cache.write(params, response) if cache
+        response.read
       end
     rescue Timeout::Error, SocketError
       debug("webservice connection failed, reading from cache")

@@ -1,71 +1,57 @@
 class Location < Weatherzone::Resource  
+  attributes :type, :code, :name, :state
 
-  has_elements "lat", "long", "elevation"
-
-  has_many :forecasts
-  has_many :district_forecasts
-  has_many :state_forecasts
-  has_one :conditions
-  has_many :historical_observations
-  has_many :daily_observations, :element => :daily_observations
-  has_many :warnings
-  has_many :images
+  has_elements :lat, :long, :elevation
+  has_attribute :units, :on_elements => [:lat, :long, :elevation]
   
-  def self.find(location, options={})
-    options[:params] = options[:params] || "&lc=#{location}"
-    options[:params] += "&latlon=1"
-    super(:location, options)
-  end
-  
-  def self.find_by_name(location_name, options={})
-    location_name = location_name.gsub(" ", "%20").gsub("-", "%20")
-    find(nil, options.merge(:params => "&lt=aploc&ln=#{location_name}"))
-  end
+  elements :forecast, :as => :forecasts, :class => Forecast
+  elements :conditions, :as => :conditions, :class => Conditions
+  elements :district_forecast, :as => :district_forecasts, :class => DistrictForecast
+  elements :state_forecast, :as => :state_forecasts, :class => StateForecast
+  elements :historical_observation, :as => :historical_observations, :class => HistoricalObservation
+  elements :daily_observations, :as => :daily_observations, :class => DailyObservation
+  elements :warning, :as => :warnings, :class => Warning
+  elements :image, :as => :images, :class => Image
 
-  def self.filter(filter, options={})
-    find(nil, options.merge(:params => "&lt=twcid&lf=#{filter}"))    
-  end
-
-  def self.capital_cities(options={})
-    filter("twccapcity", options.merge(:params => "&lt=twcid"))
-  end
+  # override base ruby Object#type
+  attr_reader :type
 
   def id
-    @attributes["code"]
+    code
   end
 
   def current_forecast
     @current_forecast ||= forecasts.first
   end
-
+  
   def current_district_forecast
     @current_district_forecast ||= district_forecasts.first
   end
   
   def current_district_forecast_precis
-    current_district_forecast && current_district_forecast.available? ? current_district_forecast.precis : "District forecast unavailable"  
+    current_district_forecast ? current_district_forecast.precis : "District forecast unavailable"  
   end
-
+  
   def current_state_forecast
     @current_state_forecast ||= state_forecasts.first
   end
   
   def current_state_forecast_precis
-    current_state_forecast && current_state_forecast.available? ? current_state_forecast.precis : "State forecast unavailable"
+    current_state_forecast ? current_state_forecast.precis : "State forecast unavailable"
   end
-
+  
   def current_synoptic_chart
     @current_synoptic_chart ||= images.first
   end
-
+  
   def current_synoptic_chart_text
-    current_synoptic_chart && current_synoptic_chart.available? ? current_synoptic_chart.text : "Synoptic chart unavailable"
+    current_synoptic_chart ? current_synoptic_chart.text : "Synoptic chart unavailable"
   end
   
   def position
     "(#{self.lat}&deg;S, #{self.long}&deg;E, #{self.elevation}m AMSL)"
   end
-
+  
   def url_slug
     self.name.parameterize
   end

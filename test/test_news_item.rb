@@ -1,25 +1,22 @@
 require File.dirname(__FILE__) + '/test_helper.rb'
 
-require 'weatherzone/resources/news_item.rb'
-
 class TestNewsItem < Test::Unit::TestCase
 
   def setup
-    create_connection
-    @news_items = NewsItem.all
-    @first_item = @news_items.first
+    Weatherzone::Connection.instance.stubs(:request).returns( File.open("test/response/news.xml") )
+    weather = Weather.find_location("9770")
+    @news_items = weather.news_items
+    @news_item = @news_items.first
   end
-    
-  def test_should_receive_each_specified_field_and_return_non_nil_values
-    NewsItem.fields.each do |e|
-      assert_not_nil @first_item.send(e)
-    end
-  end
-
-  def test_should_raise_exception_on_invalid_field_name
-    assert_raises Weatherzone::DataElementNotAvailable do
-      @first_item.nonsense_field
-    end
+  
+  def test_should_be_a_news_item
+    assert_kind_of NewsItem, @news_item
   end
 
+  def test_should_not_have_nil_attributes
+    [:link_url, :title, :byline, :dateline, :creditline, :copyright, :text].each do |attr_name|
+      assert_not_nil @news_item.send(attr_name), "@news_item should respond to #{attr_name}"
+    end
+  end
+  
 end

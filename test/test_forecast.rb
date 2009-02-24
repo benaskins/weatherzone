@@ -1,32 +1,30 @@
 require File.dirname(__FILE__) + '/test_helper.rb'
 
-require 'weatherzone/resources/forecast.rb'
-
 class TestForecast < Test::Unit::TestCase
 
   def setup
-    create_connection
-    @forecast = Forecast.find("9770", :include => [:point_forecasts]).first
+    super
+    weather = Weather.find_location("9770")
+    country = weather.countries.first
+    location = country.locations.first
+    @forecast = location.forecasts.first
   end
   
-  def test_should_exist
-    assert @forecast.is_a?(Forecast)
+  def test_should_be_a_forecast
+    assert_kind_of Forecast, @forecast
   end
-  
-  def test_should_receive_each_specified_field_and_return_non_nil_values
-    Forecast.fields.each do |e|
-      assert_not_nil @forecast.send(e)
+
+  def test_should_not_have_nil_attributes
+    [:day_name, :date, :temp_min_c, :temp_max_c, :prob_precip, :icon,
+      :rain_range_text, :frost_risk_text, :uv, :first_light, :sunrise, :sunset, :last_light,
+      :moonrise, :moonset, :moon_phase_phase_text, :moon_phase_phase_num, :moon_phase_image_name, 
+      :temp_min_c_units, :temp_max_c_units, :prob_precip_units, :uv_index, :icon_filename].each do |attr_name|
+      assert_not_nil @forecast.send(attr_name), "@forecast should respond to #{attr_name}"
     end
   end
 
   def test_should_have_many_point_forecasts
     assert @forecast.point_forecasts.any?
-  end
-
-  def test_should_raise_exception_on_invalid_field_name
-    assert_raises Weatherzone::DataElementNotAvailable do
-      @forecast.nonsense_field
-    end
   end
 
 end

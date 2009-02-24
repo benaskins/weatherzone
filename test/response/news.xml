@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<data>
+  <metadata>
+    <sector>weather</sector>
+    <title>Weatherzone</title>
+    <provider>The Weather Company</provider>
+    <provider_url>http://www.theweather.com.au</provider_url>
+    <schema>twcwx.dtd</schema>
+    <version>1.71</version>
+    <create_time tz="EDT">2009-02-24T16:03:58</create_time>
+    <validity>
+      <date>2009-02-24</date>
+      <day_name>Tuesday</day_name>
+    </validity>
+  </metadata>
+  <weather>
+    <global>
+      <news>
+        <news_item item_num="11284" source="TWC">
+          <link type="news" description="Full story" url="http://www.weatherzone.com.au/news/more-heavy-rain-for-queensland/11284"/>
+          <title>More heavy rain for Queensland</title>
+          <byline>Martin Palmer</byline>
+          <dateline date="2009-02-24">Tuesday, February 24, 2009</dateline>
+          <creditline>Weatherzone</creditline>
+          <copyright date="2009">Weatherzone</copyright>
+          <text>More heavy rainfall has fallen on Queensland&#039;s Central Coast, Lower Burdekin and Capricornia districts within the last 24 hours. 
+
+Again, Ingham and Innisfail bore some of the heaviest 24 hour falls, with 154mm and 108mm respectively. Lucinda Point in the Capricornia district managed a massive 208mm since 9am today and that is their highest amount for any month, since records began back in 1980. Records continue to fall as Ingham now totals 1,391mm so far in February, their highest recorded total for any month. 
+
+More rain is set to blight the already saturated coast and could severely hamper the continuing clean up operation. At the moment an offshore trough and southeasterly winds are driving the heavy rain onshore. Through the end of the week, the offshore trough looks set to deepen, pulling in stronger southeast trades and the prospect of more heavy rain. 
+
+By the weekend, the trough is expected to move away to the east and the trades will become lighter. A ridge of high pressure will again take hold of the east coast and although some showers will continue to fall, the heavy rain and most of the showers should move north of Townsville by Monday.</text>
+        </news_item>
+        <news_item item_num="11283" source="ABC">
+          <link type="news" description="Full story" url="http://www.weatherzone.com.au/news/families-stranded-after-falling-trees-destroy-bridge/11283"/>
+          <title>Families stranded after falling trees destroy bridge</title>
+          <byline></byline>
+          <dateline date="2009-02-24">Tuesday, February 24, 2009</dateline>
+          <creditline>ABC</creditline>
+          <copyright date="2008">ABC</copyright>
+          <text>Three families have been left without road access to Bellingen after a bridge was destroyed during last week&#039;s floods.
+
+Resident Gabrielle Tindall says the bridge on the Boggy Creek Road collapsed and trees fell on it, completely smashing it.
+
+She says her neighbours now have to climb over it to get to the road.
+
+Ms Tindall says she hopes some assistance will be provided under the natural disaster declaration.
+
+&quot;We call it Kate&#039;s Bridge on Boggy Creek Road. It&#039;s a public road, but council said it&#039;s not their bridge,&quot; she said.
+
+&quot;This last version of the bridge was built 17 years ago by residents and Forestry, a joint effort.
+
+&quot;I don&#039;t care whose bridge it is, it&#039;s just that we&#039;ve got women and children here, stuck. We need to get to the doctor, we need to get our medicine and we&#039;re just completely stuck.&quot;
+
+The director of engineering and operations at Bellingen Shire Council, Mike Edsall, says there is no way the council can get disaster relief funding for the bridge because it is not a council asset.</text>
+        </news_item>
+        <news_item item_num="11282" source="ABC">
+          <link type="news" description="Full story" url="http://www.weatherzone.com.au/news/flood-victims-urged-to-use-free-legal-advice/11282"/>
+          <title>Flood victims urged to use free legal advice</title>
+          <byline></byline>
+          <dateline date="2009-02-24">Tuesday, February 24, 2009</dateline>
+          <creditline>ABC</creditline>
+          <copyright date="2008">ABC</copyright>
+          <text>Flood affected residents on the New South Wales north coast are being urged to make use of free legal advice, to assist with insurance claims.
+
+NSW Attorney-General John Hatzistergos says there are two information hotlines available and Legal Aid also had a guide on how to deal with insurance companies.
+
+He says residents should make sure they are fully informed about their options.
+
+&quot;Well two hotlines are available for any person who wants to make an insurance claim, they are available to provide free legal advice, first an insurance hotline - 1300 663 464 - and a law access hotline - 1300 888 529,&quot; he said.</text>
+        </news_item>
+        <news_item item_num="11281" source="ABC">
+          <link type="news" description="Full story" url="http://www.weatherzone.com.au/news/torrens-needs-100mm-of-rainfall-bureau/11281"/>
+          <title>Torrens needs 100mm of rainfall: bureau</title>
+          <byline></byline>
+          <dateline date="2009-02-24">Tuesday, February 24, 2009</dateline>
+          <creditline>ABC</creditline>
+          <copyright date="2008">ABC</copyright>
+          <text>The weather bureau in Adelaide says at least 100 millimetres of rain would be needed to restore a water flow from the Torrens catchment area.
+
+Adelaide City Council says it will let rainfall refill the Torrens lake, which drained this month when a weir gate malfunctioned.
+
+Water from a quarry at suburban Highbury has been deemed unsuitable to refill the lake, because of high sulfate levels.
+
+Senior forecaster Paul Lainio says significant downpours would be needed to restore the normal flow.
+
+&quot;A local fall of 10, 20, 30 millimetres could have an effect, but to actually see the rivers or creeks that feed the Torrens flowing from the upper catchments we&#039;d need around about 100 millimetres or so over a broader area,&quot; he said.
+
+&quot;The amount of rain needed to get the streams flowing, normally we would see those sort of rains occurring during, I guess mid- to late-winter we should have wetted up enough to begin to see some decent stream flows.
+
+&quot;So it&#039;s still quite a while under normal circumstances before we see the decent stream flows.&quot;</text>
+        </news_item>
+        <news_item item_num="11280" source="ABC">
+          <link type="news" description="Full story" url="http://www.weatherzone.com.au/news/heatwave-power-performance-defended/11280"/>
+          <title>Heatwave power performance defended</title>
+          <byline></byline>
+          <dateline date="2009-02-24">Tuesday, February 24, 2009</dateline>
+          <creditline>ABC</creditline>
+          <copyright date="2008">ABC</copyright>
+          <text>Part-owner of the electricity distributor ETSA, Spark Infrastructure, says it performed well during heat-related load shedding last month.
+
+In its annual results, Spark says the January heatwave in South Australia was extremely trying but the factors which led to the load shedding were beyond its control.
+
+Power supplies were deliberately cut to more than 250,000 households because the interconnector to the mainland from Tasmania tripped twice in one week during the heat.
+
+Spark Infrastructure has posted a before tax profit of $190 million for the year.
+
+ETSA&#039;s unregulated revenue is down about 2.5 per cent to $173 million.</text>
+        </news_item>
+        <news_item item_num="11279" source="ABC">
+          <link type="news" description="Full story" url="http://www.weatherzone.com.au/news/new-forecast-says-brief-heat/11279"/>
+          <title>New forecast says brief heat</title>
+          <byline></byline>
+          <dateline date="2009-02-24">Tuesday, February 24, 2009</dateline>
+          <creditline>ABC</creditline>
+          <copyright date="2008">ABC</copyright>
+          <text>Extreme heat late this week in Adelaide is now expected to be short-lived.
+
+The weather bureau has revised a forecast of 41 degrees Celsius for Friday, to about 34 degrees and a morning change.
+
+The maximum is still expected to reach 39 on Thursday in Adelaide.
+
+Heat or not, there is still no forecast of rain for the drought-hit city.</text>
+        </news_item>
+      </news>
+    </global>
+  </weather>
+</data>

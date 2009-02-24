@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<data>
+  <metadata>
+    <sector>weather</sector>
+    <title>Weatherzone</title>
+    <provider>The Weather Company</provider>
+    <provider_url>http://www.theweather.com.au</provider_url>
+    <schema>twcwx.dtd</schema>
+    <version>1.71</version>
+    <create_time tz="EDT">2009-02-24T15:52:06</create_time>
+    <validity>
+      <date>2009-02-24</date>
+      <day_name>Tuesday</day_name>
+    </validity>
+  </metadata>
+  <weather>
+    <global>
+      <astro>
+        <astro_element day="1">
+          <day_name>Wednesday</day_name>
+          <date>2009-02-25</date>
+          <moon_phase phase_num="31" phase_text="New moon" image_name="moon_31.png"/>
+        </astro_element>
+        <astro_element day="8">
+          <day_name>Wednesday</day_name>
+          <date>2009-03-04</date>
+          <moon_phase phase_num="45" phase_text="1st quarter" image_name="moon_45.png"/>
+        </astro_element>
+        <astro_element day="15">
+          <day_name>Wednesday</day_name>
+          <date>2009-03-11</date>
+          <moon_phase phase_num="01" phase_text="Full moon" image_name="moon_01.png"/>
+        </astro_element>
+        <astro_element day="23">
+          <day_name>Thursday</day_name>
+          <date>2009-03-19</date>
+          <moon_phase phase_num="16" phase_text="3rd quarter" image_name="moon_16.png"/>
+        </astro_element>
+      </astro>
+    </global>
+  </weather>
+</data>

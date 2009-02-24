@@ -1,6 +1,9 @@
 class MoonPhase < Weatherzone::Resource
 
-  has_elements "day_name", "date", "moon_phase"
+  has_elements :day_name, :date, :moon_phase
+  has_attribute :phase_num, :on_elements => :moon_phase
+  has_attribute :phase_text, :on_elements => :moon_phase
+  has_attribute :image_name, :on_elements => :moon_phase
 
   PHASE_TEXT_TRANSLATIONS = {
     "1st quarter" => "First quarter",
@@ -9,13 +12,8 @@ class MoonPhase < Weatherzone::Resource
     "New moon" => "New moon"
   }
 
-  def self.all(options={})
-    options[:params] = options[:params] || "&moon=1"
-    find(:astro_element, options)
-  end
-  
   def date
-    Date.parse(@fields["date"].value)
+    Date.parse(@date)
   end
   
   def phase_text

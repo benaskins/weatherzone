@@ -1,10 +1,12 @@
 $:.unshift(File.dirname(__FILE__)) unless
   $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
 
-require 'activesupport'
-require 'hpricot'
+require 'rubygems'
 require 'digest/md5'
 require 'timeout'
+
+require 'nokogiri'
+require 'sax-machine'
 
 begin
   require 'openuri/memcached'
@@ -16,6 +18,8 @@ rescue LoadError
   require 'open-uri'
 end
 
+require 'ext/class'
+require 'weatherzone/finder'
 require 'weatherzone/resource'
 
 module Weatherzone

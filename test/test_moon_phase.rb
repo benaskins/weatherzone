@@ -1,29 +1,26 @@
 require File.dirname(__FILE__) + '/test_helper.rb'
 
-require 'weatherzone/resources/moon_phase.rb'
-
 class TestMoonPhase < Test::Unit::TestCase
 
   def setup
-    create_connection
-    @moon_phases = MoonPhase.all
-    @first_phase = @moon_phases.first
+    Weatherzone::Connection.instance.stubs(:request).returns( File.open("test/response/moon.xml") )
+    weather = Weather.find_location("9770")
+    @moon_phases = weather.moon_phases
+    @moon_phase = @moon_phases.first
+  end
+  
+  def test_should_be_a_moon_phase
+    assert_kind_of MoonPhase, @moon_phase
+  end
+
+  def test_should_not_have_nil_attributes
+    [:day_name, :date, :moon_phase_phase_text, :moon_phase_phase_num, :moon_phase_image_name].each do |attr_name|
+      assert_not_nil @moon_phase.send(attr_name), "@moon_phase should respond to #{attr_name}"
+    end
   end
   
   def test_should_be_four_phases
     assert_equal 4, @moon_phases.length
   end
   
-  def test_should_receive_each_specified_field_and_return_non_nil_values
-    MoonPhase.fields.each do |e|
-      assert_not_nil @first_phase.send(e)
-    end
-  end
-
-  def test_should_raise_exception_on_invalid_field_name
-    assert_raises Weatherzone::DataElementNotAvailable do
-      @first_phase.nonsense_field
-    end
-  end
-
 end

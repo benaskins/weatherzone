@@ -1,14 +1,20 @@
 class Forecast < Weatherzone::Resource
-  has_elements "day_name", "date", "temp_min_c", "temp_max_c", "prob_precip", "icon",
-    "rain_range_text", "frost_risk_text", "uv", "first_light", "sunrise", "sunset", "last_light",
-    "moonrise", "moonset", "moon_phase"
 
-  has_many :point_forecasts
+  attributes :day
+
+  has_elements :day_name, :date, :temp_min_c, :temp_max_c, :prob_precip, :icon,
+    :rain_range_text, :frost_risk_text, :uv, :first_light, :sunrise, :sunset, :last_light,
+    :moonrise, :moonset, :moon_phase
+
+  has_attribute :units, :on_elements => [:temp_min_c, :temp_max_c, :prob_precip]
+  has_attribute :index, :on_elements => :uv
+  has_attribute :filename, :on_elements => :icon
+  has_attribute :phase_num, :on_elements => :moon_phase
+  has_attribute :phase_text, :on_elements => :moon_phase
+  has_attribute :image_name, :on_elements => :moon_phase
   
-  def self.find(location, options={})
-    options[:params] = options[:params] || "code=#{location}&fc=1"
-    super(:forecast, options)
-  end
+  
+  elements :point_forecast, :as => :point_forecasts, :class => PointForecast  
 
   def icon_name
     icon[:filename].split(".").first
@@ -20,10 +26,6 @@ class Forecast < Weatherzone::Resource
 
   def chance_of_rain
     "#{self.prob_precip}#{self.prob_precip.units}"
-  end
-
-  def date
-    Date.parse(@fields["date"].value)
   end
 
   def min_rain
