@@ -3,6 +3,7 @@ Manifest.txt
 README.txt
 Rakefile
 bin/weatherzone
+lib/ext/class.rb
 lib/weatherzone.rb
 lib/weatherzone/connection.rb
 lib/weatherzone/resource.rb
