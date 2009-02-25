@@ -13,7 +13,9 @@ module Weatherzone
       :moon => "fc_moon=1",
       :historical_observations => "histobs=1",
       :daily_observations => "dlyobs=7",
-      :position => "latlon=1"
+      :position => "latlon=1",
+      :moon_phases => "moon=1",
+      :news_items => "news=1"
     } 
 
     def self.included(klass)
@@ -41,7 +43,7 @@ module Weatherzone
           end
 
           def build_params(location_code, options)
-            params = location_code ? "lc=#{location_code}" : ""
+            params = location_code ? "&lc=#{location_code}" : ""
             params  += options.delete(:params)                  if options[:params]
             params  += include_params(options.delete(:include)) if options[:include]
             params  += include_image(options.delete(:image))    if options[:image]

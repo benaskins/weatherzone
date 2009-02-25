@@ -41,7 +41,7 @@ module Weatherzone
     end
     
     def wz_url_for(params)
-      "#{base_url}&#{params}"
+      "#{base_url}#{params}"
     end
     
     def request(params)
