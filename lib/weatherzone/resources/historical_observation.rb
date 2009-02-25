@@ -7,7 +7,7 @@ class HistoricalObservation < Weatherzone::Resource
   has_attribute :period, :on_elements => :rainfall_mm
   
   WIND_SPEED_RANGE = {
-    (0..19) => "calm",                                                                                       d
+    (0..19) => "calm",                                                                                       
     (20..30) => "moderate",
     (31..39) => "fresh",
     (40..61) => "strong",
