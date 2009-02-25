@@ -5,7 +5,6 @@ Rakefile
 bin/weatherzone
 lib/weatherzone.rb
 lib/weatherzone/connection.rb
-lib/weatherzone/data_element.rb
 lib/weatherzone/resource.rb
 lib/weatherzone/finder.rb
 lib/weatherzone/helpers/almanac_element.rb
