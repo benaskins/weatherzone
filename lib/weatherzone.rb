@@ -21,8 +21,9 @@ end
 require 'ext/class'
 require 'weatherzone/finder'
 require 'weatherzone/resource'
+require 'weatherzone/helpers/almanac_element'
 
 module Weatherzone
-  VERSION = '0.3.3'
+  VERSION = '0.3.4'
 end
 

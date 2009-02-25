@@ -54,5 +54,9 @@ class TestLocation < Test::Unit::TestCase
   def test_should_have_images
     assert @location.images.any?
   end
+
+  def test_should_have_almanacs
+    assert @location.images.any?
+  end
   
 end

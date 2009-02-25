@@ -12,6 +12,7 @@ class Location < Weatherzone::Resource
   elements :daily_observations, :as => :daily_observations, :class => DailyObservation
   elements :warning, :as => :warnings, :class => Warning
   elements :image, :as => :images, :class => Image
+  elements :almanac, :as => :almanacs, :class => Almanac
 
   # override base ruby Object#type
   attr_reader :type
