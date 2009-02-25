@@ -14,7 +14,7 @@ class TestNewsItem < Test::Unit::TestCase
   end
 
   def test_should_not_have_nil_attributes
-    [:link_url, :title, :byline, :dateline, :creditline, :copyright, :text].each do |attr_name|
+    [:link_url, :title, :byline, :dateline, :creditline, :copyright, :text, :dateline_date, :copyright_date, :link_type, :link_description].each do |attr_name|
       assert_not_nil @news_item.send(attr_name), "@news_item should respond to #{attr_name}"
     end
   end

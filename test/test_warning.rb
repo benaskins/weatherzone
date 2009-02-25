@@ -15,7 +15,7 @@ class TestWarning < Test::Unit::TestCase
   end
 
   def test_should_not_have_nil_attributes
-    [:issue_day_name, :issue_time_local, :expire_time_local, :short_text, :url].each do |attr_name|
+    [:id, :type, :issue_day_name, :issue_time_local, :expire_time_local, :short_text, :url].each do |attr_name|
       assert_not_nil @warning.send(attr_name), "@warning should respond to #{attr_name}"
     end
   end

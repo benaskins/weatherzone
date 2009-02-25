@@ -15,7 +15,7 @@ class TestStateForecast < Test::Unit::TestCase
   end
 
   def test_should_not_have_nil_attributes
-    [:period_name, :precis].each do |attr_name|
+    [:period, :period_name, :precis].each do |attr_name|
       assert_not_nil @state_forecast.send(attr_name), "@state_forecast should respond to #{attr_name}"
     end
   end

@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/test_helper.rb'
 
-class TestCondition < Test::Unit::TestCase
+class TestConditions < Test::Unit::TestCase
 
   def setup
     super
@@ -19,6 +19,13 @@ class TestCondition < Test::Unit::TestCase
       :wind_dir_degrees, :wind_dir_compass, :wind_speed_kph, :wind_speed_kts,
       :wind_gust_kph, :wind_gust_kts, :feels_like_c, :rainfall_mm, :pressure_qnh_hpa].each do |attr_name|
       assert_not_nil @conditions.send(attr_name), "@conditions should respond to #{attr_name}"
+    end
+  end
+
+  def test_should_have_units_attributes
+    [:temp_c, :dp_c, :rh, :wind_dir_degrees, :wind_speed_kph, :wind_speed_kts, 
+      :wind_gust_kph, :wind_gust_kts, :feels_like_c, :pressure_qnh_hpa, :rainfall_mm].each do |attr_name|
+      assert_not_nil @conditions.send("#{attr_name}_units"), "@conditions should respond to #{attr_name}_units"
     end
   end
 

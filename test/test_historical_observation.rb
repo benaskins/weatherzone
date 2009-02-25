@@ -22,4 +22,11 @@ class TestHistoricalObservtion < Test::Unit::TestCase
     end
   end
 
+  def test_should_have_units_attributes
+    [:temp_c, :dp_c, :rh, :wind_dir_degrees, :wind_speed_kph, :wind_speed_kts, 
+      :wind_gust_kph, :wind_gust_kts, :feels_like_c, :pressure_qnh_hpa, :rainfall_mm].each do |attr_name|
+      assert_not_nil @historical_observation.send("#{attr_name}_units"), "@historical_observation should respond to #{attr_name}_units"
+    end
+  end
+
 end

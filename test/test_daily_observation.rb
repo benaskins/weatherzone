@@ -15,8 +15,14 @@ class TestDailyObservtion < Test::Unit::TestCase
   end
 
   def test_should_not_have_nil_attributes
-    [:day_name, :date, :temp_min_c, :rainfall_mm].each do |attr_name|
+    [:day_name, :date, :temp_min_c, :temp_max_c, :rainfall_mm].each do |attr_name|
       assert_not_nil @daily_observation.send(attr_name), "@daily_observation should respond to #{attr_name}"
+    end
+  end
+
+  def test_should_have_units_attributes
+    [:temp_min_c, :temp_max_c, :rainfall_mm].each do |attr_name|
+      assert_not_nil @daily_observation.send("#{attr_name}_units"), "@daily_observation should respond to #{attr_name}_units"
     end
   end
 

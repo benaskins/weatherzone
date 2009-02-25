@@ -15,7 +15,7 @@ class TestDistrictForecast < Test::Unit::TestCase
   end
 
   def test_should_not_have_nil_attributes
-    [:period_name, :precis, :icon].each do |attr_name|
+    [:period, :period_name, :precis, :icon, :icon_filename].each do |attr_name|
       assert_not_nil @district_forecast.send(attr_name), "@district_forecast should respond to #{attr_name}"
     end
   end

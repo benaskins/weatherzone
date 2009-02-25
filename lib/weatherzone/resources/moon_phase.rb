@@ -1,5 +1,5 @@
 class MoonPhase < Weatherzone::Resource
-
+  attributes :day
   has_elements :day_name, :date, :moon_phase
   has_attribute :phase_num, :on_elements => :moon_phase
   has_attribute :phase_text, :on_elements => :moon_phase
@@ -17,7 +17,7 @@ class MoonPhase < Weatherzone::Resource
   end
   
   def phase_text
-    PHASE_TEXT_TRANSLATIONS[moon_phase.phase_text]
+    PHASE_TEXT_TRANSLATIONS[moon_phase_phase_text]
   end
   
 end
