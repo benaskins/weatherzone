@@ -1,5 +1,4 @@
 require 'weatherzone/connection'
-require 'weatherzone/data_element'
 
 module Weatherzone
 
