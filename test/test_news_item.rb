@@ -4,7 +4,7 @@ class TestNewsItem < Test::Unit::TestCase
 
   def setup
     Weatherzone::Connection.instance.stubs(:request).returns( File.open("test/response/news.xml") )
-    weather = Weather.find_location("9770")
+    weather = Weather.find_by_location_code("9770")
     @news_items = weather.news_items
     @news_item = @news_items.first
   end

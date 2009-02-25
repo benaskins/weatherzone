@@ -4,7 +4,7 @@ class TestWarning < Test::Unit::TestCase
 
   def setup
     Weatherzone::Connection.instance.stubs(:request).returns( File.open("test/response/warnings.xml") )
-    weather = Weather.find_location("9770")
+    weather = Weather.find_by_location_code("9770")
     country = weather.countries.first
     location = country.locations.first
     @warning = location.warnings.first

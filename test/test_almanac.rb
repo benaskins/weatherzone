@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/test_helper.rb'
 class TestAlmanac < Test::Unit::TestCase
   def setup
     super
-    weather = Weather.find_location("9770")
+    weather = Weather.find_by_location_code("9770")
     country = weather.countries.first
     location = country.locations.first
     @almanac = location.almanacs.first

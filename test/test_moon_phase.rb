@@ -4,7 +4,7 @@ class TestMoonPhase < Test::Unit::TestCase
 
   def setup
     Weatherzone::Connection.instance.stubs(:request).returns( File.open("test/response/moon.xml") )
-    weather = Weather.find_location("9770")
+    weather = Weather.find_by_location_code("9770")
     @moon_phases = weather.moon_phases
     @moon_phase = @moon_phases.first
   end

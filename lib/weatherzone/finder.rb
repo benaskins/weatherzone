@@ -25,17 +25,17 @@ module Weatherzone
             make_request(build_params(nil, options))
           end
           
-          def find_location(location_code, options={})
+          def find_by_location_code(location_code, options={})
             make_request(build_params(location_code, options))
           end
 
-          def find_location_by_name(location_name, options={})
+          def find_by_location_name(location_name, options={})
             location_name = location_name.gsub(" ", "%20").gsub("-", "%20")
             options.merge!(:params => "&lt=aploc&ln=#{location_name}")
             find(options)
           end
 
-          def find_locations_using_filter(filter, options={})
+          def find_by_location_filter(filter, options={})
             options.merge!(:params => "&lt=twcid&lf=#{filter}")
             find(options)
           end

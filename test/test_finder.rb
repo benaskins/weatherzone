@@ -6,35 +6,35 @@ class TestFinder < Test::Unit::TestCase
     include Weatherzone::Finder
   end
 
-  def test_should_respond_to_find_location
-    assert SomeResource.respond_to?(:find_location)
+  def test_should_respond_to_find_by_location_code
+    assert SomeResource.respond_to?(:find_by_location_code)
   end
   
   def test_should_build_parameters
     SomeResource.expects(:build_params).with(9770, :include => [:forecast])
-    SomeResource.find_location(9770, :include => [:forecast])
+    SomeResource.find_by_location_code(9770, :include => [:forecast])
   end
 
   def test_should_make_request
     Weatherzone::Connection.instance.expects(:request).returns( File.open("test/response/everything.xml") )
-    SomeResource.find_location(9770, :include => [:forecast])
+    SomeResource.find_by_location_code(9770, :include => [:forecast])
   end
 
   def test_should_parse_response
     f = File.open("test/response/everything.xml")
     Weatherzone::Connection.instance.stubs(:request).returns( f )
     SomeResource.expects(:parse).with(f)
-    SomeResource.find_location(9770, :include => [:forecast])
+    SomeResource.find_by_location_code(9770, :include => [:forecast])
   end
 
-  def test_should_find_location_by_name
+  def test_should_find_by_location_name
     SomeResource.expects(:build_params).with(nil, :params => "&lt=aploc&ln=Sydney%20NSW")
-    SomeResource.find_location_by_name("Sydney NSW")
+    SomeResource.find_by_location_name("Sydney NSW")
   end
 
-  def test_should_find_locations_using_filter
+  def test_should_find_by_location_filter
     SomeResource.expects(:build_params).with(nil, :params => "&lt=twcid&lf=twccapcity")
-    SomeResource.find_locations_using_filter("twccapcity")
+    SomeResource.find_by_location_filter("twccapcity")
   end
   
   def test_should_include_location_parameter_string

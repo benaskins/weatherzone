@@ -4,7 +4,7 @@ class TestWeather < Test::Unit::TestCase
 
   def setup
     Weatherzone::Connection.instance.stubs(:request).returns( File.open("test/response/everything.xml")  )
-    @weather = Weather.find_location("9770")
+    @weather = Weather.find_by_location_code("9770")
   end
   
   def test_should_be_an_instance_of_weather
