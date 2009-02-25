@@ -8,7 +8,6 @@ lib/weatherzone/connection.rb
 lib/weatherzone/resource.rb
 lib/weatherzone/finder.rb
 lib/weatherzone/helpers/almanac_element.rb
-
 lib/weatherzone/resources/almanac.rb
 lib/weatherzone/resources/almanac_period.rb
 lib/weatherzone/resources/conditions.rb
@@ -25,5 +24,3 @@ lib/weatherzone/resources/point_forecast.rb
 lib/weatherzone/resources/state_forecast.rb
 lib/weatherzone/resources/warning.rb
 lib/weatherzone/resources/weather.rb
-
-test/test_weatherzone.rb
