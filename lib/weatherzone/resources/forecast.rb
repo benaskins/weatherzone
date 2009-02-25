@@ -21,11 +21,11 @@ class Forecast < Weatherzone::Resource
   end
 
   def abbr_day_name
-    self.day_name.to_s[0..2]
+    self.day_name[0..2]
   end
 
   def chance_of_rain
-    "#{self.prob_precip}#{self.prob_precip.units}"
+    "#{self.prob_precip}#{self.prob_precip_units}"
   end
 
   def min_rain
