@@ -24,6 +24,10 @@ class Forecast < Weatherzone::Resource
     self.day_name[0..2]
   end
 
+  def date
+    Date.parse(@date)
+  end
+
   def chance_of_rain
     "#{self.prob_precip}#{self.prob_precip_units}"
   end
