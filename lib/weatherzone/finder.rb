@@ -42,6 +42,16 @@ module Weatherzone
             options.merge!(:params => "&lt=twcid&lf=#{filter}")
             find(options)
           end
+          
+          def find_by_district(district_code, options={})
+            options.merge!(:params => "&lt=twcid&dist=#{district_code}")
+            find(options)            
+          end
+
+          def find_districts_by_state(state, options={})
+            options.merge!(:params => "&lt=dist&state=#{state}")
+            find(options)                        
+          end
 
           def build_params(location_code, options)
             params = location_code ? "&lc=#{location_code}" : ""

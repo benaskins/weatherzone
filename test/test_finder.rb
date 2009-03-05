@@ -37,6 +37,16 @@ class TestFinder < Test::Unit::TestCase
     SomeResource.find_by_location_filter("twccapcity")
   end
 
+  def test_should_find_by_district
+    SomeResource.expects(:build_params).with(nil, :params => "&lt=twcid&dist=N00")
+    SomeResource.find_by_district("N00")
+  end
+
+  def test_should_find_districts_by_state
+    SomeResource.expects(:build_params).with(nil, :params => "&lt=dist&state=nsw")
+    SomeResource.find_districts_by_state("nsw")
+  end
+
   def test_should_find_using_arbitrary_include
     SomeResource.expects(:build_params).with(nil, :include => [:moon_phases])
     SomeResource.find(:include => [:moon_phases])
