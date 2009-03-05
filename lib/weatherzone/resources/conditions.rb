@@ -9,6 +9,6 @@ class Conditions < Weatherzone::Resource
   has_attribute :period, :on_elements => :rainfall_mm
 
   def rainfall
-    rainfall_mm.available? ? "#{self.rainfall_mm}#{self.rainfall_mm[:units]}" : "n/a"
+    rainfall_mm ? "#{self.rainfall_mm}#{self.rainfall_mm_units}" : "n/a"
   end
 end

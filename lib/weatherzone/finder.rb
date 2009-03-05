@@ -6,7 +6,7 @@ module Weatherzone
       :point_forecasts => "fc=3",
       :district_forecasts => "dist_fc=1",
       :conditions => "obs=1",
-      :warnings => "warn=1",
+      :warnings => "warn=2",
       :state_forecasts => "state_fc=1",
       :uv_index => "uv=1",
       :sun => "fc_sun=2",
@@ -15,7 +15,8 @@ module Weatherzone
       :daily_observations => "dlyobs=7",
       :position => "latlon=1",
       :moon_phases => "moon=1",
-      :news_items => "news=1"
+      :news_items => "news=2",
+      :almanac => "almanac=1"
     } 
 
     def self.included(klass)

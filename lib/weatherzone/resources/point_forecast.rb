@@ -30,10 +30,10 @@ class PointForecast < Weatherzone::Resource
   end
   
   def relative_humidity
-    self.rh.available? ? "#{self.rh}#{self.rh.units}" : "n/a"
+    self.rh ? "#{self.rh}#{self.rh_units}" : "n/a"
   end
   
   def dew_point
-    self.dp_c.available? ? "#{self.dp_c}#{self.dp_c.units}" : "n/a"
+    self.dp_c ? "#{self.dp_c}#{self.dp_c_units}" : "n/a"
   end
 end

@@ -67,7 +67,7 @@ class TestFinder < Test::Unit::TestCase
   end
 
   def test_should_include_warnings
-    assert_equal "&lc=9770&warn=1", SomeResource.build_params(9770, :include => [:warnings])    
+    assert_equal "&lc=9770&warn=2", SomeResource.build_params(9770, :include => [:warnings])    
   end
 
   def test_should_include_uv_index
@@ -99,7 +99,7 @@ class TestFinder < Test::Unit::TestCase
   end
 
   def test_should_include_news_items
-    assert_equal "&news=1", SomeResource.build_params(nil, :include => [:news_items])    
+    assert_equal "&news=2", SomeResource.build_params(nil, :include => [:news_items])    
   end
   
   def test_should_support_multiple_includes
