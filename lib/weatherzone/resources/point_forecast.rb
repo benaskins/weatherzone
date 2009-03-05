@@ -1,7 +1,11 @@
 class PointForecast < Weatherzone::Resource
 
+  attributes :time
+  
   has_elements :dp_c, :rh, :wind_dir_degrees, :wind_dir_compass, :wind_speed_kph
 
+  has_attribute :units, :on_elements => [:dp_c, :rh, :wind_dir_degrees, :wind_speed_kph]
+  
   WIND_DIRECTIONS = {
     :N => "North",
     :NNE => "North North East",
@@ -26,7 +30,7 @@ class PointForecast < Weatherzone::Resource
   end
   
   def wind_dir_compass_long
-    WIND_DIRECTIONS[self.wind_dir_compass.to_sym]
+    WIND_DIRECTIONS[self.wind_dir_compass.to_sym] if self.wind_dir_compass
   end
   
   def relative_humidity

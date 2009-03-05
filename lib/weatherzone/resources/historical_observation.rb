@@ -37,4 +37,16 @@ class HistoricalObservation < Weatherzone::Resource
     WIND_SPEED_RANGE.find_by_speed(wind_speed_kph)
   end
   
+  def rainfall_mm
+    @rainfall_mm || "0"
+  end
+  
+  def hash
+    obs_time_local.hash
+  end
+  
+  def eql?(other)
+    self.obs_time_local == other.obs_time_local
+  end
+  
 end

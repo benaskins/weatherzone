@@ -12,12 +12,12 @@ class Forecast < Weatherzone::Resource
   has_attribute :phase_num, :on_elements => :moon_phase
   has_attribute :phase_text, :on_elements => :moon_phase
   has_attribute :image_name, :on_elements => :moon_phase
-  
+  has_attribute :tz, :on_elements => [:first_light, :last_light, :sunset, :sunrise, :moonset, :moonrise]  
   
   elements :point_forecast, :as => :point_forecasts, :class => PointForecast  
 
   def icon_name
-    icon[:filename].split(".").first
+    icon_filename.split(".").first
   end
 
   def abbr_day_name
@@ -33,11 +33,11 @@ class Forecast < Weatherzone::Resource
   end
 
   def min_rain
-    self.rain_range_text.split("-")[0].to_i
+    self.rain_range_text.split("-")[0].to_i if rain_range_text
   end
 
   def max_rain
-    self.rain_range_text.split("-")[1].to_i
+    self.rain_range_text.split("-")[1].to_i if rain_range_text
   end
 
 end
