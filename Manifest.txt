@@ -9,6 +9,8 @@ lib/weatherzone/connection.rb
 lib/weatherzone/resource.rb
 lib/weatherzone/finder.rb
 lib/weatherzone/helpers/almanac_element.rb
+lib/weatherzone/helpers/date_parser.rb
+lib/weatherzone/helpers/units.rb
 lib/weatherzone/resources/almanac.rb
 lib/weatherzone/resources/almanac_period.rb
 lib/weatherzone/resources/conditions.rb

@@ -6,7 +6,7 @@ module Weatherzone
       :point_forecasts => "fc=3",
       :district_forecasts => "dist_fc=1",
       :conditions => "obs=1",
-      :warnings => "warn=1",
+      :warnings => "warn=2",
       :state_forecasts => "state_fc=1",
       :uv_index => "uv=1",
       :sun => "fc_sun=2",
@@ -15,7 +15,8 @@ module Weatherzone
       :daily_observations => "dlyobs=7",
       :position => "latlon=1",
       :moon_phases => "moon=1",
-      :news_items => "news=1"
+      :news_items => "news=2",
+      :almanac => "almanac=1"
     } 
 
     def self.included(klass)
@@ -40,6 +41,16 @@ module Weatherzone
           def find_by_location_filter(filter, options={})
             options.merge!(:params => "&lt=twcid&lf=#{filter}")
             find(options)
+          end
+          
+          def find_by_district(district_code, options={})
+            options.merge!(:params => "&lt=twcid&dist=#{district_code}")
+            find(options)            
+          end
+
+          def find_districts_by_state(state, options={})
+            options.merge!(:params => "&lt=dist&state=#{state}")
+            find(options)                        
           end
 
           def build_params(location_code, options)

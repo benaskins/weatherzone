@@ -22,8 +22,10 @@ require 'ext/class'
 require 'weatherzone/finder'
 require 'weatherzone/resource'
 require 'weatherzone/helpers/almanac_element'
+require 'weatherzone/helpers/date_parser'
+require 'weatherzone/helpers/units'
 
 module Weatherzone
-  VERSION = '0.4.0'
+  VERSION = '0.4.1'
 end
 

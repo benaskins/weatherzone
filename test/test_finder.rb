@@ -37,6 +37,16 @@ class TestFinder < Test::Unit::TestCase
     SomeResource.find_by_location_filter("twccapcity")
   end
 
+  def test_should_find_by_district
+    SomeResource.expects(:build_params).with(nil, :params => "&lt=twcid&dist=N00")
+    SomeResource.find_by_district("N00")
+  end
+
+  def test_should_find_districts_by_state
+    SomeResource.expects(:build_params).with(nil, :params => "&lt=dist&state=nsw")
+    SomeResource.find_districts_by_state("nsw")
+  end
+
   def test_should_find_using_arbitrary_include
     SomeResource.expects(:build_params).with(nil, :include => [:moon_phases])
     SomeResource.find(:include => [:moon_phases])
@@ -67,7 +77,7 @@ class TestFinder < Test::Unit::TestCase
   end
 
   def test_should_include_warnings
-    assert_equal "&lc=9770&warn=1", SomeResource.build_params(9770, :include => [:warnings])    
+    assert_equal "&lc=9770&warn=2", SomeResource.build_params(9770, :include => [:warnings])    
   end
 
   def test_should_include_uv_index
@@ -99,7 +109,7 @@ class TestFinder < Test::Unit::TestCase
   end
 
   def test_should_include_news_items
-    assert_equal "&news=1", SomeResource.build_params(nil, :include => [:news_items])    
+    assert_equal "&news=2", SomeResource.build_params(nil, :include => [:news_items])    
   end
   
   def test_should_support_multiple_includes
