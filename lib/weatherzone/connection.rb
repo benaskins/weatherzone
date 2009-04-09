@@ -49,12 +49,11 @@ module Weatherzone
       debug("GET #{url}")
       timeout(self.timeout_after) do
         response = OpenURI::open(url)
-        cache.write(params, response) if cache
         response.read
       end
     rescue Timeout::Error, SocketError
       debug("webservice connection failed, reading from cache")
-      cache ? (cache.read(params) || raise(RequestFailed.new(url))) : raise(RequestFailed.new(url))
+      raise RequestFailed.new(url)
     end
     
     def debug(message)
