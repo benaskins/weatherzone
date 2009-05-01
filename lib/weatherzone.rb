@@ -9,6 +9,7 @@ require 'nokogiri'
 require 'sax-machine'
 
 begin
+  $LOAD_PATH << File.join(File.dirname(__FILE__), *%w[vendor openuri_memcached lib])
   require 'openuri/memcached'
   # Cache for 10 minutes. The web service caches for the same period, so this ensures we've always got
   # the freshest data and the speediest response.
@@ -20,6 +21,7 @@ rescue LoadError
 end
 
 require 'ext/class'
+require 'ext/object'
 require 'weatherzone/finder'
 require 'weatherzone/resource'
 require 'weatherzone/helpers/almanac_element'
