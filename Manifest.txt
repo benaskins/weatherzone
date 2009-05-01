@@ -25,5 +25,6 @@ lib/weatherzone/resources/moon_phase.rb
 lib/weatherzone/resources/news_item.rb
 lib/weatherzone/resources/point_forecast.rb
 lib/weatherzone/resources/state_forecast.rb
+lib/weatherzone/resources/marine_forecast.rb
 lib/weatherzone/resources/warning.rb
 lib/weatherzone/resources/weather.rb

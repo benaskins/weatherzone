@@ -23,6 +23,24 @@
           <warnings>
             <warning>No warnings current</warning>
           </warnings>
+          <marine_forecast>
+            <issue_day_name>Friday</issue_day_name>
+            <issue_time_local tz="EST">2009-05-01T04:55</issue_time_local>
+            <validity>
+            <date>2009-05-01</date>
+            <day_name>Friday</day_name>
+            </validity>
+            <short_text>NW/NE 5/10 kts.</short_text>
+            <long_text>
+            NW/NE 5/10 knots. Sea: less than 1 metre. Swell: S 1.5/2 metres. Outlook Saturday: W/SW around 10 knots, turning S 10/15 knots during the afternoon, S 15/20 knots at times during the evening. Sea: about 1 metre, rising to 1.5/2 metres later. Swell: S/SE 1/1.5 metres.
+            Outlook Sunday: SW/SE 10/15 knots.
+            </long_text>
+            <sea_height_m units="m">1.0</sea_height_m>
+            <sea_height_text>1.0</sea_height_text>
+            <swell_height_m units="m">2.0</swell_height_m>
+            <swell_dir_compass>S</swell_dir_compass>
+            <warning_icon/>
+          </marine_forecast>
           <conditions>
             <obs_time_utc tz="UTC">2009-02-24T23:02:00</obs_time_utc>
             <obs_time_local tz="EDT">2009-02-25T10:02:00</obs_time_local>

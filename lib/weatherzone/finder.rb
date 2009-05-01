@@ -19,7 +19,8 @@ module Weatherzone
       :almanac => "almanac=1",
       :links => "links=1",
       :radar_animator => "ra=1",
-      :radar_still => "rs=1"
+      :radar_still => "rs=1",
+      :marine_forecast => "marine=1"
     } 
 
     def self.included(klass)
