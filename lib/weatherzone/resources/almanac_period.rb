@@ -39,12 +39,12 @@ class AlmanacPeriod < Weatherzone::Resource
   almanac_element "Extreme", "lowest",  :with_attributes => [:period, :date, :value, :units], :as => :lowest_extreme_temp
   
   interpret_as_date :driest_rainfall_this_month_date, :wettest_rainfall_this_month_date, :driest_rainfall_this_year_date, :wettest_rainfall_this_year_date,
-     :hottest_temp_this_month_date, :coldest_temp_this_month_date, :hottest_temp_this_year_date, :coldest_temp_this_year_date, :highest_extreme_temp_date,
-     :lowest_extreme_temp_date
-   
+    :hottest_temp_this_month_date, :coldest_temp_this_month_date, :hottest_temp_this_year_date, :coldest_temp_this_year_date, :highest_extreme_temp_date,
+    :lowest_extreme_temp_date
+  
   value_plus_unit_readers :avg_rainfall_this_month, :driest_rainfall_this_month, :wettest_rainfall_this_month, :rainfall_this_month, :rainfall_this_time_last_year,
-     :avg_rainfall_this_year, :driest_rainfall_this_year, :wettest_rainfall_this_year, :rainfall_this_year, :avg_max_temp_long_term, :avg_min_temp_long_term, 
-     :avg_max_temp_this_month, :avg_min_temp_this_month, :hottest_temp_this_month, :coldest_temp_this_month, :hottest_temp_this_year, :coldest_temp_this_year, 
-     :coldest_extreme, :hottest_extreme, :wettest_extreme, :highest_extreme_temp, :lowest_extreme_temp
-     
+    :avg_rainfall_this_year, :driest_rainfall_this_year, :wettest_rainfall_this_year, :rainfall_this_year, :avg_max_temp_long_term, :avg_min_temp_long_term, 
+    :avg_max_temp_this_month, :avg_min_temp_this_month, :hottest_temp_this_month, :coldest_temp_this_month, :hottest_temp_this_year, :coldest_temp_this_year, 
+    :coldest_extreme, :hottest_extreme, :wettest_extreme, :highest_extreme_temp, :lowest_extreme_temp
+  
 end

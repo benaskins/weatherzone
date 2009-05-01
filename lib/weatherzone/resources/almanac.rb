@@ -6,13 +6,13 @@ class Almanac < Weatherzone::Resource
   def mtd
     @mtd ||= almanac_periods.detect { |ap| ap.code == "MTD" }
   end
-  
+
   def ytd
     @ytd ||= almanac_periods.detect { |ap| ap.code == "YTD" }
   end
-  
+
   def extremes
     @extremes ||= almanac_periods.detect { |ap| ap.code == "Extremes" }
   end
-  
+
 end

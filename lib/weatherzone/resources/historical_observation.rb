@@ -44,9 +44,9 @@ class HistoricalObservation < Weatherzone::Resource
   def hash
     obs_time_local.hash
   end
-  
+
   def eql?(other)
     self.obs_time_local == other.obs_time_local
   end
-  
+
 end

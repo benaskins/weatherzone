@@ -1,5 +1,7 @@
 class Forecast < Weatherzone::Resource
 
+  include Weatherzone::Helpers::Units
+
   attributes :day
 
   has_elements :day_name, :date, :temp_min_c, :temp_max_c, :prob_precip, :icon,
@@ -12,9 +14,11 @@ class Forecast < Weatherzone::Resource
   has_attribute :phase_num, :on_elements => :moon_phase
   has_attribute :phase_text, :on_elements => :moon_phase
   has_attribute :image_name, :on_elements => :moon_phase
-  has_attribute :tz, :on_elements => [:first_light, :last_light, :sunset, :sunrise, :moonset, :moonrise]  
+  has_attribute :tz, :on_elements => [:first_light, :last_light, :sunset, :sunrise, :moonset, :moonrise]
   
   elements :point_forecast, :as => :point_forecasts, :class => PointForecast  
+
+  value_plus_unit_readers :temp_min_c, :temp_max_c 
 
   def icon_name
     icon_filename.split(".").first
