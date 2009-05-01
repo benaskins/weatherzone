@@ -16,7 +16,10 @@ module Weatherzone
       :position => "latlon=1",
       :moon_phases => "moon=1",
       :news_items => "news=2",
-      :almanac => "almanac=1"
+      :almanac => "almanac=1",
+      :links => "links=1",
+      :radar_animator => "ra=1",
+      :radar_still => "rs=1"
     } 
 
     def self.included(klass)
@@ -50,7 +53,7 @@ module Weatherzone
 
           def find_districts_by_state(state, options={})
             options.merge!(:params => "&lt=dist&state=#{state}")
-            find(options)                        
+            find(options).countries.first.locations
           end
 
           def build_params(location_code, options)
@@ -66,8 +69,6 @@ module Weatherzone
           def make_request(params)
             response = @@connection.request(params)
             parse(response)
-          rescue Weatherzone::RequestFailed => e
-            @@connection.error(e.message)                        
           end
           
           def include_params(includes)

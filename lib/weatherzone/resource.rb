@@ -31,7 +31,10 @@ module Weatherzone
         element element_name, :value => attr_name, :as => method_name
       end
     end
-            
+
+    def settings
+      Weatherzone::Settings.instance
+    end
     # def hash
     #   @fields.collect { |field_name, data_element| data_element.hash }.hash
     # end

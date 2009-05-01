@@ -14,6 +14,7 @@ begin
   # the freshest data and the speediest response.
   OpenURI::Cache.expiry = 60 * 10
   OpenURI::Cache.enable!
+  OpenURI::Cache::KeyHash.enable!
 rescue LoadError
   require 'open-uri'
 end

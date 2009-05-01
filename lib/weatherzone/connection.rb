@@ -9,6 +9,11 @@ module Weatherzone
     end
   end
   
+  class Settings
+    include Singleton
+    attr_accessor :strip_scale_from_units
+  end
+  
   class Connection
 
     DEFAULT_TIMEOUT_AFTER = 1
@@ -32,6 +37,10 @@ module Weatherzone
       connection.timeout_after = options[:timeout_after] || DEFAULT_TIMEOUT_AFTER
     end
   
+    def self.settings
+      Weatherzone::Settings.instance
+    end
+  
     def key
       @keygen.call
     end
@@ -52,7 +61,7 @@ module Weatherzone
         response.read
       end
     rescue Timeout::Error, SocketError
-      debug("webservice connection failed, reading from cache")
+      debug("webservice connection failed")
       raise RequestFailed.new(url)
     end
     
