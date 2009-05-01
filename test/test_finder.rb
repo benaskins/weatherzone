@@ -6,6 +6,11 @@ class TestFinder < Test::Unit::TestCase
     include Weatherzone::Finder
   end
 
+  class DistrictResource < Weatherzone::Resource
+    include Weatherzone::Finder
+    elements :country, :as => :countries, :class => Country
+  end
+
   def test_should_respond_to_find_by_location_code
     assert SomeResource.respond_to?(:find_by_location_code)
   end
@@ -43,8 +48,8 @@ class TestFinder < Test::Unit::TestCase
   end
 
   def test_should_find_districts_by_state
-    SomeResource.expects(:build_params).with(nil, :params => "&lt=dist&state=nsw")
-    SomeResource.find_districts_by_state("nsw")
+    DistrictResource.expects(:build_params).with(nil, :params => "&lt=dist&state=nsw")
+    DistrictResource.find_districts_by_state("nsw")
   end
 
   def test_should_find_using_arbitrary_include
