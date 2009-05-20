@@ -15,7 +15,7 @@ class Location < Weatherzone::Resource
   elements :warning, :as => :warnings, :class => Warning
   elements :almanac, :as => :almanacs, :class => Almanac
 
-  elements :image, :as => :synoptic_chart, :with => {:type => "Synoptic chart"}, :class => Image
+  elements :image, :as => :synoptic_charts, :with => {:type => "Synoptic chart"}, :class => Image
 
   element :link, :value => :url, :as => :radar_animator, :with => {:type => "radar animator"}
   element :link, :value => :url, :as => :radar_still, :with => {:type => "radar still"}

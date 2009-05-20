@@ -52,11 +52,11 @@ class TestLocation < Test::Unit::TestCase
   end
   
   def test_should_have_images
-    assert @location.images.any?
+    assert @location.synoptic_charts.any?
   end
 
   def test_should_have_almanacs
-    assert @location.images.any?
+    assert @location.almanacs.any?
   end
   
 end

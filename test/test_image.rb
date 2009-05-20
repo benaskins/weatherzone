@@ -7,7 +7,7 @@ class TestImage < Test::Unit::TestCase
     weather = Weather.find_by_location_code("9770")
     country = weather.countries.first
     location = country.locations.first
-    @image = location.images.first
+    @image = location.synoptic_charts.first
   end
   
   def test_should_be_an_image
