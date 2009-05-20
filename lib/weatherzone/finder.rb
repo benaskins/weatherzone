@@ -20,6 +20,8 @@ module Weatherzone
       :links => "links=1",
       :radar_animator => "ra=1",
       :radar_still => "rs=1",
+      :satellite_animator => "sa=1",
+      :satellite_still => "ss=1",
       :marine_forecast => "marine=1"
     } 
 
