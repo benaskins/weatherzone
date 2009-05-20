@@ -14,8 +14,10 @@ module Weatherzone
 
           def self.interpret_as_time(*methods)
             methods.each do |method_name|
+              has_attribute :tz, :on_elements => methods
               define_method method_name do
-                Time.parse(instance_variable_get("@#{method_name}"))
+                tz = TZInfo::Timezone.get("Australia/#{send("#{method_name}_tz")}")
+                tz.local_to_utc(Time.parse(instance_variable_get("@#{method_name}")))
               end
             end
           end
