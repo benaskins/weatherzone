@@ -7,6 +7,7 @@ require 'timeout'
 
 require 'nokogiri'
 require 'sax-machine'
+require 'tzinfo'
 
 begin
   $LOAD_PATH << File.join(File.dirname(__FILE__), *%w[vendor openuri_memcached lib])
@@ -29,6 +30,6 @@ require 'weatherzone/helpers/date_parser'
 require 'weatherzone/helpers/units'
 
 module Weatherzone
-  VERSION = '0.4.2'
+  VERSION = '0.4.4'
 end
 

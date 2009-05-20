@@ -36,3 +36,10 @@ lib/vendor/openuri_memcached/lib/openuri_memcached.rb
 lib/vendor/openuri_memcached/lib/openuri/common.rb
 lib/vendor/openuri_memcached/lib/openuri/memcached.rb
 lib/vendor/openuri_memcached/lib/openuri/rails-cache.rb
+lib/tzinfo/definitions/Australia/CDT.rb
+lib/tzinfo/definitions/Australia/CST.rb
+lib/tzinfo/definitions/Australia/EDT.rb
+lib/tzinfo/definitions/Australia/EST.rb
+lib/tzinfo/definitions/Australia/WDT.rb
+lib/tzinfo/definitions/Australia/WST.rb
+lib/weatherzone/helpers/date_parser.rb
