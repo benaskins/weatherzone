@@ -4,7 +4,6 @@ class Location < Weatherzone::Resource
   has_elements :lat, :long, :elevation
   has_attribute :units, :on_elements => [:lat, :long, :elevation]
 
-  
   elements :forecast, :as => :forecasts, :class => Forecast
   elements :conditions, :as => :conditions, :class => Conditions
   elements :district_forecast, :as => :district_forecasts, :class => DistrictForecast
