@@ -3,6 +3,7 @@ class Location < Weatherzone::Resource
 
   has_elements :lat, :long, :elevation
   has_attribute :units, :on_elements => [:lat, :long, :elevation]
+
   
   elements :forecast, :as => :forecasts, :class => Forecast
   elements :conditions, :as => :conditions, :class => Conditions
@@ -12,13 +13,17 @@ class Location < Weatherzone::Resource
   elements :historical_observation, :as => :historical_observations, :class => HistoricalObservation
   elements :daily_observations, :as => :daily_observations, :class => DailyObservation
   elements :warning, :as => :warnings, :class => Warning
-  elements :image, :as => :images, :class => Image
   elements :almanac, :as => :almanacs, :class => Almanac
+
+  elements :image, :as => :synoptic_chart, :with => {:type => "Synoptic chart"}, :class => Image
 
   element :link, :value => :url, :as => :radar_animator, :with => {:type => "radar animator"}
   element :link, :value => :url, :as => :radar_still, :with => {:type => "radar still"}
   element :link, :value => :width, :as => :radar_still_width, :with => {:type => "radar still"}
   element :link, :value => :height, :as => :radar_still_height, :with => {:type => "radar still"}
+
+  element :link, :value => :url, :as => :satellite_animator, :with => {:type => "satellite animator"}
+  element :link, :value => :url, :as => :satellite_still, :with => {:type => "satellite still"}
 
   # override base ruby Object#type
   attr_reader :type
@@ -52,11 +57,15 @@ class Location < Weatherzone::Resource
   end
   
   def current_synoptic_chart
-    @current_synoptic_chart ||= images.first
+    synoptic_chart.first
   end
   
   def current_synoptic_chart_text
     current_synoptic_chart ? current_synoptic_chart.text : "Synoptic chart unavailable"
+  end
+  
+  def current_marine_forecast
+    @marine_forecast ||= marine_forecasts.first
   end
   
   def historical_observations_shifted_to_nearest_half_hour
