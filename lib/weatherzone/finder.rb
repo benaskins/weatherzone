@@ -22,7 +22,8 @@ module Weatherzone
       :radar_still => "rs=1",
       :satellite_animator => "sa=1",
       :satellite_still => "ss=1",
-      :marine_forecast => "marine=1"
+      :marine_forecast => "marine=1",
+      :tides => "tides=1"
     } 
 
     def self.included(klass)
@@ -41,6 +42,11 @@ module Weatherzone
           def find_by_location_name(location_name, options={})
             location_name = location_name.gsub(" ", "%20").gsub("-", "%20")
             options.merge!(:params => "&lt=aploc&ln=#{location_name}")
+            find(options)
+          end
+
+          def find_by_swellnet_code(swellnet_code, options={})
+            options.merge!(:params => "&lt=swellnet&lc=#{swellnet_code}")
             find(options)
           end
 
