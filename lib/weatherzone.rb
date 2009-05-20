@@ -21,8 +21,11 @@ rescue LoadError
   require 'open-uri'
 end
 
-require 'ext/class'
-require 'ext/object'
+unless defined?(ActiveSupport)
+  require 'ext/class'
+  require 'ext/object'
+end
+
 require 'weatherzone/finder'
 require 'weatherzone/resource'
 require 'weatherzone/helpers/almanac_element'
@@ -32,4 +35,3 @@ require 'weatherzone/helpers/units'
 module Weatherzone
   VERSION = '0.4.4'
 end
-
