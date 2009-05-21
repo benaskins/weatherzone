@@ -40,6 +40,29 @@
             <swell_height_m units="m">2.0</swell_height_m>
             <swell_dir_compass>S</swell_dir_compass>
             <warning_icon/>
+            <marine_summaries>
+              <marine_summary day="0">
+                <day_name>Thursday</day_name>
+                <precis>E/NE increasing 15/20 kts</precis>
+                <wind_dir_compass>ENE</wind_dir_compass>
+                <wind_speed_kts units="kts">20</wind_speed_kts>
+                <wind_speed_kph units="km/h">37</wind_speed_kph>
+              </marine_summary>
+              <marine_summary day="1">
+                <day_name>Friday</day_name>
+                <precis>E/NE 15/25 kts</precis>
+                <wind_dir_compass>ENE</wind_dir_compass>
+                <wind_speed_kts units="kts">25</wind_speed_kts>
+                <wind_speed_kph units="km/h">46</wind_speed_kph>
+              </marine_summary>
+              <marine_summary day="2">
+                <day_name>Saturday</day_name>
+                <precis>E/NE 10/20 kts</precis>
+                <wind_dir_compass>ENE</wind_dir_compass>
+                <wind_speed_kts units="kts">20</wind_speed_kts>
+                <wind_speed_kph units="km/h">37</wind_speed_kph>
+              </marine_summary>
+            </marine_summaries>
           </marine_forecast>
           <conditions>
             <obs_time_utc tz="UTC">2009-02-24T23:02:00</obs_time_utc>

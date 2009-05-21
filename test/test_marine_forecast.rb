@@ -20,4 +20,8 @@ class TestMarineForecast < Test::Unit::TestCase
     end
   end
 
+  def test_should_have_marine_summaries
+    assert @marine_forecast.marine_summaries.any?
+  end
+
 end
