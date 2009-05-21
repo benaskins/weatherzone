@@ -13,7 +13,8 @@ class Location < Weatherzone::Resource
   elements :daily_observations, :as => :daily_observations, :class => DailyObservation
   elements :warning, :as => :warnings, :class => Warning
   elements :almanac, :as => :almanacs, :class => Almanac
-
+  elements :tide, :as => :tides, :class => Tide
+  
   elements :image, :as => :synoptic_charts, :with => {:type => "Synoptic chart"}, :class => Image
 
   element :link, :value => :url, :as => :radar_animator, :with => {:type => "radar animator"}

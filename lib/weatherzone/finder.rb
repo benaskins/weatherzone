@@ -23,7 +23,8 @@ module Weatherzone
       :satellite_animator => "sa=1",
       :satellite_still => "ss=1",
       :marine_forecast => "marine=1",
-      :tides => "tides=1"
+      :tides => "tides=4",
+      :tide_height => "tideh=1"
     } 
 
     def self.included(klass)

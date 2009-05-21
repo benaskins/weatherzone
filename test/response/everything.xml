@@ -3476,6 +3476,32 @@
               <url scheme="" domain="" path="" filename="" parameters="">http://www.weatherzone.com.au/httpdata_r/images/synoptic/wz_syn_aus_d0_640x480.jpg</url>
             </image>
           </images>
+          <tides>
+            <tide>
+              <day_name>Thursday</day_name>
+              <time tz="EST">2009-05-21T17:50</time>
+              <tide_type>High</tide_type>
+              <tide_height_m units="m">1.6</tide_height_m>
+            </tide>
+            <tide>
+              <day_name>Friday</day_name>
+              <time tz="EST">2009-05-22T00:11</time>
+              <tide_type>Low </tide_type>
+              <tide_height_m units="m">0.5</tide_height_m>
+            </tide>
+            <tide>
+              <day_name>Friday</day_name>
+              <time tz="EST">2009-05-22T06:02</time>
+              <tide_type>High</tide_type>
+              <tide_height_m units="m">1.4</tide_height_m>
+            </tide>
+            <tide>
+              <day_name>Friday</day_name>
+              <time tz="EST">2009-05-22T12:02</time>
+              <tide_type>Low </tide_type>
+              <tide_height_m units="m">0.4</tide_height_m>
+            </tide>
+          </tides>
         </location>
       </country>
     </countries>

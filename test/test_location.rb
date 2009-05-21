@@ -58,5 +58,9 @@ class TestLocation < Test::Unit::TestCase
   def test_should_have_almanacs
     assert @location.almanacs.any?
   end
+
+  def test_should_have_tides
+    assert @location.tides.any?
+  end
   
 end
