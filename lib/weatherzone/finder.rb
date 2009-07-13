@@ -33,6 +33,7 @@ module Weatherzone
 
         class << self
           def find(options, location_code=nil)
+            set_options(options)
             make_request(build_params(location_code, options))
           end
           
@@ -79,7 +80,6 @@ module Weatherzone
           end
 
           def build_params(location_code, options)
-            Weather.temperature_unit = options.delete(:temperature_unit)
             params = location_code ? "&lc=#{location_code}" : ""
             params  += options.delete(:params)                  if options[:params]
             params  += include_params(options.delete(:include)) if options[:include]
@@ -89,6 +89,10 @@ module Weatherzone
           end
 
           protected
+          def set_options(options)
+            Weather.temperature_unit = options.delete(:temperature_unit)
+          end
+
           def make_request(params)
             response = @@connection.request(params)
             parse(response)
