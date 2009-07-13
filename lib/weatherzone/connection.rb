@@ -59,18 +59,22 @@ module Weatherzone
     
     def request(params)
       url = wz_url_for(params)
-      debug("GET #{url}")
+      info("GET #{url}")
       timeout(self.timeout_after) do
         response = OpenURI::open(url)
         response.read
       end
     rescue Timeout::Error, SocketError
-      debug("webservice connection failed")
+      error("webservice connection failed")
       raise RequestFailed.new(url)
     end
     
     def debug(message)
       @logger.debug("[weatherzone] #{message}") if @logger
+    end
+
+    def info(message)
+      @logger.info("[weatherzone] #{message}") if @logger
     end
 
     def error(message)
