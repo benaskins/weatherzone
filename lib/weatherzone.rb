@@ -11,12 +11,14 @@ require 'tzinfo'
 
 begin
   $LOAD_PATH << File.join(File.dirname(__FILE__), *%w[vendor openuri_memcached lib])
-  require 'openuri/memcached'
-  # Cache for 10 minutes. The web service caches for the same period, so this ensures we've always got
-  # the freshest data and the speediest response.
-  OpenURI::Cache.expiry = 60 * 10
-  OpenURI::Cache.enable!
-  OpenURI::Cache::KeyHash.enable!
+  if defined? Rails
+    require 'openuri/rails-cache'
+  else
+    require 'openuri/memcached'
+    # Cache for 10 minutes. The web service caches for the same period, so this ensures we've always got
+    # the freshest data and the speediest response.
+    OpenURI::Cache.expiry = 600
+  end
 rescue LoadError
   require 'open-uri'
 end
