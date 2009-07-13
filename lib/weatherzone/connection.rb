@@ -20,7 +20,7 @@ module Weatherzone
 
     include Singleton
 
-    attr_accessor :username, :password, :keygen, :cache, :logger, :timeout_after
+    attr_accessor :username, :password, :keygen, :logger, :timeout_after
     
     def initialize
       @logger       = Logger.new(STDOUT)
@@ -33,7 +33,6 @@ module Weatherzone
       connection.password      = password
       connection.keygen        = block
       connection.logger        = options[:logger]
-      connection.cache         = options[:cache]
       connection.timeout_after = options[:timeout_after] || DEFAULT_TIMEOUT_AFTER
     end
   
