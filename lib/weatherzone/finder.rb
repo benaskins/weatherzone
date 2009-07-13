@@ -37,31 +37,43 @@ module Weatherzone
           end
           
           def find_by_location_code(location_code, options={})
+            options = options.dup
             make_request(build_params(location_code, options))
+          end
+          
+          def find_by_twcid(twcid, options={})
+            options = options.dup
+            options.merge!(:params => "&lt=twcid&lc=#{twcid}")
+            find(options)
           end
 
           def find_by_location_name(location_name, options={})
+            options = options.dup
             location_name = location_name.gsub(" ", "%20").gsub("-", "%20")
             options.merge!(:params => "&lt=aploc&ln=#{location_name}")
             find(options)
           end
 
           def find_by_swellnet_code(swellnet_code, options={})
+            options = options.dup
             options.merge!(:params => "&lt=swellnet&lc=#{swellnet_code}")
             find(options)
           end
 
           def find_by_location_filter(filter, options={})
+            options = options.dup
             options.merge!(:params => "&lt=twcid&lf=#{filter}")
             find(options)
           end
           
           def find_by_district(district_code, options={})
+            options = options.dup
             options.merge!(:params => "&lt=twcid&dist=#{district_code}")
             find(options)            
           end
 
           def find_districts_by_state(state, options={})
+            options = options.dup
             options.merge!(:params => "&lt=dist&state=#{state}")
             find(options).countries.first.locations
           end
