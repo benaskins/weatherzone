@@ -79,6 +79,7 @@ module Weatherzone
           end
 
           def build_params(location_code, options)
+            Weather.temperature_unit = options.delete(:temperature_unit)
             params = location_code ? "&lc=#{location_code}" : ""
             params  += options.delete(:params)                  if options[:params]
             params  += include_params(options.delete(:include)) if options[:include]
