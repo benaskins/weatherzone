@@ -32,13 +32,13 @@ module Weatherzone
         @@connection = Weatherzone::Connection.instance
 
         class << self
-          def find(options)
-            make_request(build_params(nil, options))
+          def find(options, location_code=nil)
+            make_request(build_params(location_code, options))
           end
           
           def find_by_location_code(location_code, options={})
             options = options.dup
-            make_request(build_params(location_code, options))
+            find(options, location_code)
           end
           
           def find_by_twcid(twcid, options={})
