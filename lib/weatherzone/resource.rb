@@ -6,7 +6,7 @@ module Weatherzone
     
     include SAXMachine
 
-    class_inheritable_accessor :top_level_element, :temperature_unit
+    class_inheritable_accessor :top_level_element, :temperature_unit, :temperature_attributes
 
     def self.inherited(klass)
       klass.class_eval do
