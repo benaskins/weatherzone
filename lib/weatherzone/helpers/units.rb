@@ -60,7 +60,7 @@ module Weatherzone
             temp_f = (BigDecimal(value) * BigDecimal("1.8")) + BigDecimal("32")
             case
             when self.class.forecast_temperature_attributes.include?(method_name)
-              temp_f.round(0).to_s("F")
+              temp_f.round(0).to_i.to_s
             when self.class.observed_temperature_attributes.include?(method_name)
               temp_f.round(1).to_s("F")
             else

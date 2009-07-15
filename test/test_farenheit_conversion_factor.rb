@@ -17,12 +17,12 @@ class TestFarenheitConversionFactor < Test::Unit::TestCase
     @conditions = location.conditions.first
   end
   
-  def test_forecast_should_convert_and_round_min_temp_value_to_zero_decimal_places
-    assert_equal "#{C21_AS_F.round(0).to_s('f')}", @forecast.temp_min_c_value
+  def test_forecast_should_convert_and_round_min_temp_value_to_integer
+    assert_equal "#{C21_AS_F.round(0).to_i.to_s}", @forecast.temp_min_c_value
   end
 
   def test_forecast_should_convert_and_round_min_temp_value_with_units
-    assert_equal "#{C21_AS_F.round(0).to_s('f')}°F", @forecast.temp_min_c
+    assert_equal "#{C21_AS_F.round(0).to_i.to_s}°F", @forecast.temp_min_c
   end
 
   def test_forecast_should_convert_min_temp_units
