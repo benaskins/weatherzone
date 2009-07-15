@@ -10,7 +10,7 @@ class Conditions < Weatherzone::Resource
                                           :wind_gust_kph, :wind_gust_kts, :feels_like_c, :pressure_qnh_hpa, :rainfall_mm]
   has_attribute :period, :on_elements => :rainfall_mm
 
-  temperature :temp_c
+  observed_temperature :temp_c
   value_plus_unit_readers :dp_c, :rh, :wind_speed_kph, :wind_speed_kts, :wind_gust_kph, :wind_gust_kts, :feels_like_c, :rainfall_mm, :pressure_qnh_hpa
 
   def wind_dir_and_speed

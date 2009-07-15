@@ -1,30 +1,12 @@
 = weatherzone
 
-* FIX (url)
+http://github.com/benaskins/weatherzone/
 
 == DESCRIPTION:
 
-FIX (describe your package)
-
-== FEATURES/PROBLEMS:
-
-* FIX (list of features or problems)
-
-== SYNOPSIS:
-
-  FIX (code sample of usage)
-
-== REQUIREMENTS:
-
-* FIX (list of requirements)
-
-== INSTALL:
-
-* FIX (sudo gem install, anything else)
+Ruby client for the weatherzone webservice.
 
 == LICENSE:
-
-(The MIT License)
 
 Copyright (c) 2008 FIX
 

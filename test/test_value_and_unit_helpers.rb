@@ -25,6 +25,10 @@ class TestValueAndUnitHelpers < Test::Unit::TestCase
   def test_forecast_should_have_min_temp_units
     assert_equal "°C", @forecast.temp_min_c_units
   end
+  
+  def test_conditions_should_have_temp_value
+    assert_equal "22.7", @conditions.temp_c_value    
+  end
 
   def test_conditions_should_have_rainfall_value
     assert_equal "0.0", @conditions.rainfall_mm_value

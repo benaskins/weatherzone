@@ -18,7 +18,7 @@ class Forecast < Weatherzone::Resource
   
   elements :point_forecast, :as => :point_forecasts, :class => PointForecast  
 
-  temperature :temp_min_c, :temp_max_c
+  forecast_temperature :temp_min_c, :temp_max_c
 
   def icon_name
     icon_filename.split(".").first

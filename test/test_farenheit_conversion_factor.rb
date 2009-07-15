@@ -2,7 +2,8 @@ require File.dirname(__FILE__) + '/test_helper.rb'
 
 class TestFarenheitConversionFactor < Test::Unit::TestCase
 
-  C21_AS_F = (21 * 1.8) + 32
+  C21_AS_F   = (BigDecimal("21") * BigDecimal("1.8")) + BigDecimal("32")
+  C22P7_AS_F = (BigDecimal("22.7") * BigDecimal("1.8")) + BigDecimal("32")
   
   def setup
     Weatherzone::Connection.connect("username", "password") do
@@ -16,16 +17,20 @@ class TestFarenheitConversionFactor < Test::Unit::TestCase
     @conditions = location.conditions.first
   end
   
-  def test_forecast_should_convert_min_temp_value
-    assert_equal "#{C21_AS_F}", @forecast.temp_min_c_value
+  def test_forecast_should_convert_and_round_min_temp_value_to_zero_decimal_places
+    assert_equal "#{C21_AS_F.round(0).to_s('f')}", @forecast.temp_min_c_value
   end
 
-  def test_forecast_should_convert_min_temp_value_with_units
-    assert_equal "#{C21_AS_F}°F", @forecast.temp_min_c
+  def test_forecast_should_convert_and_round_min_temp_value_with_units
+    assert_equal "#{C21_AS_F.round(0).to_s('f')}°F", @forecast.temp_min_c
   end
 
   def test_forecast_should_convert_min_temp_units
     assert_equal "°F", @forecast.temp_min_c_units
+  end
+  
+  def test_conditions_should_convert_and_round_temp_value_to_one_decimal_place
+    assert_equal "#{C22P7_AS_F.round(1).to_s('f')}", @conditions.temp_c_value
   end
   
   def test_conditions_should_not_convert_rainfall_value
