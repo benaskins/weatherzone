@@ -23,6 +23,17 @@
           <warnings>
             <warning>No warnings current</warning>
           </warnings>
+          <surf_report>
+            <issue_day_name>Tuesday</issue_day_name>
+            <issue_time_local tz="EST">2009-07-21T16:31:15</issue_time_local>
+            <report_day_name>Monday</report_day_name>
+            <report_time_local>2009-07-13T07:40:00</report_time_local>
+            <image url="http://dev.swellnet.com.au/checked_images/rid18_lid27_13072009_1.jpg" link="http://www.swellnet.com.au/" width="460" height="375" caption="" />
+            <surf_summary_text>clean 1ft</surf_summary_text>
+            <wind_text>light N</wind_text>
+            <weather_text>mild</weather_text>
+            <summary>13th beach has a light offshore and a very small swell at 1ft that is struggling to break and really just lapping on the shore.Best options will be the beachies but take something around 15 ft with a motor. Down south would have waves but that's a serious road trip and a commitment of a full day.The low tide is 9.10 am with a 0.55 metres and the high tide is 4.05 pm with a 1.62 metres. Looks like the swell will build a little by Wednesday though winds will likely be variable...</summary>
+          </surf_report>
           <marine_forecast>
             <issue_day_name>Friday</issue_day_name>
             <issue_time_local tz="EST">2009-05-01T04:55</issue_time_local>

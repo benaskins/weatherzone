@@ -24,7 +24,8 @@ module Weatherzone
       :satellite_still => "ss=1",
       :marine_forecast => "marine=1",
       :tides => "tides=4",
-      :tide_height => "tideh=1"
+      :tide_height => "tideh=1",
+      :surf_report => "surf_rpt=2"
     } 
 
     def self.included(klass)

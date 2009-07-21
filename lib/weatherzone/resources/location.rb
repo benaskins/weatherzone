@@ -9,6 +9,7 @@ class Location < Weatherzone::Resource
   elements :district_forecast, :as => :district_forecasts, :class => DistrictForecast
   elements :state_forecast, :as => :state_forecasts, :class => StateForecast
   elements :marine_forecast, :as => :marine_forecasts, :class => MarineForecast
+  elements :surf_report, :as => :surf_reports, :class => SurfReport
   elements :historical_observation, :as => :historical_observations, :class => HistoricalObservation
   elements :daily_observations, :as => :daily_observations, :class => DailyObservation
   elements :warning, :as => :warnings, :class => Warning

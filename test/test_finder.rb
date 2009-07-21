@@ -121,6 +121,10 @@ class TestFinder < Test::Unit::TestCase
     assert_equal "&lc=9770&latlon=1", SomeResource.build_params(9770, :include => [:position])    
   end
 
+  def test_should_include_surf_report
+    assert_equal "&lc=9770&surf_rpt=2", SomeResource.build_params(9770, :include => [:surf_report])    
+  end
+
   def test_should_include_moon_phases
     assert_equal "&moon=1", SomeResource.build_params(nil, :include => [:moon_phases])    
   end
