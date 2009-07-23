@@ -20,6 +20,7 @@ lib/weatherzone/resources/daily_observation.rb
 lib/weatherzone/resources/district_forecast.rb
 lib/weatherzone/resources/forecast.rb
 lib/weatherzone/resources/historical_observation.rb
+lib/weatherzone/resources/climate_period.rb
 lib/weatherzone/resources/image.rb
 lib/weatherzone/resources/location.rb
 lib/weatherzone/resources/moon_phase.rb
