@@ -12,6 +12,7 @@ class Location < Weatherzone::Resource
   elements :surf_report, :as => :surf_reports, :class => SurfReport
   elements :historical_observation, :as => :historical_observations, :class => HistoricalObservation
   elements :daily_observations, :as => :daily_observations, :class => DailyObservation
+  elements :climate_period, :as => :climate_periods, :class => ClimatePeriod
   elements :warning, :as => :warnings, :class => Warning
   elements :almanac, :as => :almanacs, :class => Almanac
   elements :tide, :as => :tides, :class => Tide

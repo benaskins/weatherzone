@@ -23,6 +23,12 @@
           <warnings>
             <warning>No warnings current</warning>
           </warnings>
+          <climate_period type="Month" code="1" name="January">
+            <mean_temp_min_c units="°C">18.7</mean_temp_min_c>
+            <mean_temp_max_c units="°C">25.9</mean_temp_max_c>
+            <rain_days>12.1</rain_days>
+            <mean_rainfall_mm units="mm">102.0</mean_rainfall_mm>
+          </climate_period>          
           <surf_report>
             <issue_day_name>Tuesday</issue_day_name>
             <issue_time_local tz="EST">2009-07-21T16:31:15</issue_time_local>

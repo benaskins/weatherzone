@@ -117,6 +117,10 @@ class TestFinder < Test::Unit::TestCase
     assert_equal "&lc=9770&dlyobs=7", SomeResource.build_params(9770, :include => [:daily_observations])    
   end
 
+  def test_should_include_climate_periods
+    assert_equal "&lc=9770&climate=1(months=12)", SomeResource.build_params(9770, :include => [:climate_periods])    
+  end
+
   def test_should_include_position
     assert_equal "&lc=9770&latlon=1", SomeResource.build_params(9770, :include => [:position])    
   end
