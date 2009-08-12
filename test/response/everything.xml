@@ -28,7 +28,36 @@
             <mean_temp_max_c units="°C">25.9</mean_temp_max_c>
             <rain_days>12.1</rain_days>
             <mean_rainfall_mm units="mm">102.0</mean_rainfall_mm>
-          </climate_period>          
+          </climate_period>       
+          <snow_report>
+            <day_name>Wednesday</day_name>
+            <issue_time_local tz="EST">2009-08-12T09:17:00</issue_time_local>
+            <visibility_text>Poor</visibility_text>
+            <road_conditions>Open and Clear - All vehicles must carry Chains</road_conditions>
+            <primary_surface>Soft</primary_surface>
+            <snow_conditions>Closed</snow_conditions>
+            <snow_cover>Snowplay</snow_cover>
+            <snow_depth_avg_cm units="cm">0</snow_depth_avg_cm>
+            <snow_depth_new_cm units="cm">0</snow_depth_new_cm>
+            <snow_making>0</snow_making>
+            <grooming>0</grooming>
+            <last_snowfall_date>2009-08-10</last_snowfall_date>
+            <resort_summary>
+              A Reminder to all intending visitors to Ben Lomond Snow fields that it is a requirement that you carry correctly fitting chains during the Snow season. Pleaes fit chains as appropiate, if in doubt ask a local.Â
+              Â
+              Ben Lomond Junior Races 15th August (TBC)Â
+            </resort_summary>
+            <lifts_open>0</lifts_open>
+            <lifts>
+            <lift time="2009-07-28T07:49:00" tz="EST" name="Bass" status="standby"/>
+            <lift time="2009-07-28T07:49:00" tz="EST" name="Bills" status="closed"/>
+            <lift time="2009-07-28T07:49:00" tz="EST" name="Creek" status="closed"/>
+            <lift time="2009-07-28T07:49:00" tz="EST" name="Fannys" status="closed"/>
+            <lift time="2009-07-28T07:49:00" tz="EST" name="Giblin" status="closed"/>
+            <lift time="2009-07-28T07:49:00" tz="EST" name="Summit" status="standby"/>
+            <lift time="2009-07-28T07:49:00" tz="EST" name="Village" status="standby"/>
+            </lifts>
+          </snow_report>   
           <surf_report>
             <issue_day_name>Tuesday</issue_day_name>
             <issue_time_local tz="EST">2009-07-21T16:31:15</issue_time_local>
