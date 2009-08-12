@@ -29,6 +29,8 @@ lib/weatherzone/resources/point_forecast.rb
 lib/weatherzone/resources/state_forecast.rb
 lib/weatherzone/resources/marine_forecast.rb
 lib/weatherzone/resources/marine_summary.rb
+lib/weatherzone/resources/lift.rb
+lib/weatherzone/resources/snow_report.rb
 lib/weatherzone/resources/surf_report.rb
 lib/weatherzone/resources/warning.rb
 lib/weatherzone/resources/weather.rb
