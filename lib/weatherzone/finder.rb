@@ -93,7 +93,8 @@ module Weatherzone
 
           protected
           def set_options(options)
-            Weather.temperature_unit = options.delete(:temperature_unit)
+            @@connection.settings.weather_class ||= self
+            self.temperature_unit = options.delete(:temperature_unit)
           end
 
           def make_request(params)

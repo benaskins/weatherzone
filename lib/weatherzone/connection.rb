@@ -11,7 +11,7 @@ module Weatherzone
   
   class Settings
     include Singleton
-    attr_accessor :strip_scale_from_units
+    attr_accessor :strip_scale_from_units, :weather_class
   end
   
   class Connection
@@ -39,6 +39,10 @@ module Weatherzone
   
     def self.settings
       Weatherzone::Settings.instance
+    end
+    
+    def settings
+      self.class.settings
     end
   
     def key
@@ -80,6 +84,6 @@ module Weatherzone
     def error(message)
       @logger.error("[weatherzone] #{message}") if @logger
     end
-
+    
   end
 end

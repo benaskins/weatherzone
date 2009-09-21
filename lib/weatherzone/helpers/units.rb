@@ -45,15 +45,13 @@ module Weatherzone
               define_method "#{method_name}_units" do
                 ivar_name = "@#{method_name}_units"
                 unit      = instance_variable_get(ivar_name)
-                fahrenheit_conversion_required?(method_name) ? unit.gsub("C", Weather.temperature_unit) : unit
+                fahrenheit_conversion_required?(method_name) ? unit.gsub("C", temperature_unit) : unit
               end
             end
           end
 
           def fahrenheit_conversion_required?(method_name)
-            Weather.temperature_unit == "F" \
-              && (self.class.forecast_temperature_attributes.include?(method_name) || self.class.observed_temperature_attributes.include?(method_name))
-              
+            temperature_unit == "F" && (self.class.forecast_temperature_attributes.include?(method_name) || self.class.observed_temperature_attributes.include?(method_name))
           end
 
           def to_fahrenheit(value, method_name)
@@ -66,6 +64,10 @@ module Weatherzone
             else
               temp_f.to_s("F")
             end
+          end
+          
+          def temperature_unit
+            settings.weather_class.temperature_unit
           end
         end
       end
