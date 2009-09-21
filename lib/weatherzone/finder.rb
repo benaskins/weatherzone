@@ -26,7 +26,8 @@ module Weatherzone
       :tides => "tides=4",
       :tide_height => "tideh=1",
       :surf_report => "surf_rpt=2",
-      :climate_periods => "climate=1(months=12)"
+      :climate_periods => "climate=1(months=12)",
+      :related_locations => "locdet=1"
     } 
 
     def self.included(klass)
