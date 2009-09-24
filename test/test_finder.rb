@@ -89,6 +89,10 @@ class TestFinder < Test::Unit::TestCase
     assert_equal "&lc=9770&tideh=1", SomeResource.build_params(9770, :include => [:tide_height])    
   end
 
+  def test_should_include_buoy_observations
+    assert_equal "&lc=9770&buoy=1(period=24)", SomeResource.build_params(9770, :include => [:buoy_observations])    
+  end
+
   def test_should_include_conditions
     assert_equal "&lc=9770&obs=1", SomeResource.build_params(9770, :include => [:conditions])    
   end
