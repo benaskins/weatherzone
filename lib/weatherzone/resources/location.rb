@@ -17,6 +17,7 @@ class Location < Weatherzone::Resource
   elements :warning, :as => :warnings, :class => Warning
   elements :almanac, :as => :almanacs, :class => Almanac
   elements :tide, :as => :tides, :class => Tide
+  elements :buoy_obs, :as => :buoy_observations, :class => BuoyObservation
   
   elements :image, :as => :synoptic_charts, :with => {:type => "Synoptic chart"}, :class => Image
 

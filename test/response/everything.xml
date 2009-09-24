@@ -28,7 +28,39 @@
             <mean_temp_max_c units="°C">25.9</mean_temp_max_c>
             <rain_days>12.1</rain_days>
             <mean_rainfall_mm units="mm">102.0</mean_rainfall_mm>
-          </climate_period>       
+          </climate_period>      
+          <bouy_data>
+            <buoy_obs>
+              <day_name>Thursday</day_name>
+              <time tz="">2009-09-24T09:00</time>
+              <wave_height_m units="m" significant="2.6" max="4.9"/>
+              <wave_height_ft units="ft" significant="8.4" max="15.9"/>
+              <wave_period units="s" significant="9" peak="10"/>
+              <wave_dir_degrees units="°">183</wave_dir_degrees>
+              <wave_dir_compass>S</wave_dir_compass>
+              <sea_temp_c units="°C">18.0</sea_temp_c>
+            </buoy_obs>
+            <buoy_obs>
+              <day_name>Thursday</day_name>
+              <time tz="">2009-09-24T08:00</time>
+              <wave_height_m units="m" significant="2.6" max="4.4"/>
+              <wave_height_ft units="ft" significant="8.5" max="14.3"/>
+              <wave_period units="s" significant="9" peak="10"/>
+              <wave_dir_degrees units="°">179</wave_dir_degrees>
+              <wave_dir_compass>S</wave_dir_compass>
+              <sea_temp_c units="°C">18.2</sea_temp_c>
+            </buoy_obs>
+            <buoy_obs>
+              <day_name>Thursday</day_name>
+              <time tz="">2009-09-24T07:00</time>
+              <wave_height_m units="m" significant="2.7" max="4.6"/>
+              <wave_height_ft units="ft" significant="9.0" max="15.0"/>
+              <wave_period units="s" significant="9" peak="11"/>
+              <wave_dir_degrees units="°">189</wave_dir_degrees>
+              <wave_dir_compass>S</wave_dir_compass>
+              <sea_temp_c units="°C">18.2</sea_temp_c>
+            </buoy_obs> 
+          </bouy_data>
           <snow_report>
             <day_name>Wednesday</day_name>
             <issue_time_local tz="EST">2009-08-12T09:17:00</issue_time_local>

@@ -62,5 +62,9 @@ class TestLocation < Test::Unit::TestCase
   def test_should_have_tides
     assert @location.tides.any?
   end
+
+  def test_should_have_buoy_observations
+    assert @location.buoy_observations.any?
+  end
   
 end
