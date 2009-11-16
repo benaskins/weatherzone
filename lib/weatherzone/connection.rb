@@ -20,7 +20,7 @@ module Weatherzone
 
     include Singleton
 
-    attr_accessor :username, :password, :keygen, :logger, :timeout_after, :environment
+    attr_accessor :username, :password, :url, :keygen, :logger, :timeout_after
     
     def initialize
       @logger       = Logger.new(STDOUT)
@@ -31,10 +31,10 @@ module Weatherzone
       connection               = Weatherzone::Connection.instance
       connection.username      = username
       connection.password      = password
+      connection.url           = options[:url]
       connection.keygen        = block
       connection.logger        = options[:logger]
       connection.timeout_after = options[:timeout_after] || DEFAULT_TIMEOUT_AFTER
-      connection.environment   = options[:environment]
     end
   
     def self.settings
@@ -50,11 +50,7 @@ module Weatherzone
     end
     
     def base_url
-      @base_url ||= "http://#{domain}/ws1/wx.php?u=#{username}&k=#{key}"
-    end
-    
-    def domain
-      environment == "staging" ? "webservice.staging.theweather.com.au" : "webservice.theweather.com.au"
+      @base_url ||= "#{self.url}?u=#{username}&k=#{key}"
     end
     
     def wz_url_for(params)
