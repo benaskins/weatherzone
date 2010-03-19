@@ -36,6 +36,10 @@ module Weatherzone
         @@connection = Weatherzone::Connection.instance
 
         class << self
+          def parse_file(file_name)
+            parse(File.open(file_name))
+          end
+          
           def find(options, location_code=nil)
             set_options(options)
             make_request(build_params(location_code, options))
