@@ -87,6 +87,12 @@ module Weatherzone
             find(options).countries.first.locations
           end
 
+          def find_radars_by_state(state, options={})
+            options = options.dup
+            options.merge!(:params => "&lt=radar&links=1&ra=1&state=#{state}")
+            find(options).countries.first.locations
+          end
+
           def build_params(location_code, options)
             params = location_code ? "&lc=#{location_code}" : ""
             params  += options.delete(:params)                  if options[:params]
