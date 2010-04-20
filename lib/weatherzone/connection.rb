@@ -3,9 +3,10 @@ require 'singleton'
 module Weatherzone  
   
   class RequestFailed < Exception
-    attr_reader :message
-    def initialize(url)
-      @message = "Failed to retreive #{url} and no cached version available"
+    attr_reader :message, :original_exception
+    def initialize(url, original_exception)
+      @message   = "Failed to retreive #{url} and no cached version available"
+      @original_exception = original_exception
     end
   end
   
@@ -64,22 +65,22 @@ module Weatherzone
         response = OpenURI::open(url)
         response.read
       end
-    rescue Timeout::Error, SocketError
-      error("webservice connection failed")
-      raise RequestFailed.new(url)
+    rescue Timeout::Error, SocketError => e
+      error("webservice connection failed #{e}")
+      raise RequestFailed.new(url, e)
     end
     
-    def debug(message)
-      @logger.debug("[weatherzone] #{message}") if @logger
+    def debug(message) 
+      @logger.debug("[weatherzone] [DEBUG] #{message}") if @logger
     end
 
     def info(message)
-      @logger.info("[weatherzone] #{message}") if @logger
+      @logger.info("[weatherzone] [INFO] #{message}") if @logger
     end
 
     def error(message)
-      @logger.error("[weatherzone] #{message}") if @logger
+      @logger.error("[weatherzone] [ERROR] #{message}") if @logger
     end
-    
+   
   end
 end
