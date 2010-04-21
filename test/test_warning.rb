@@ -3,8 +3,12 @@ require File.dirname(__FILE__) + '/test_helper.rb'
 class TestWarning < Test::Unit::TestCase
 
   def setup
-    Weatherzone::Connection.instance.stubs(:request).returns( File.open("test/response/warnings.xml") )
-    weather = Weather.find_by_location_code("9770")
+    keygen = lambda do
+      eval(File.open(File.dirname(__FILE__) + '/../.wzkey.rb', 'r').read)      
+    end
+    @connection = Weatherzone::Connection.new(ENV['WZ_USER'], ENV['WZ_PASS'], keygen, :url => ENV['WZ_URL'], :timeout_after => 10)    
+    @connection.stubs(:request).returns( File.open("test/response/warnings.xml") )
+    weather = Weather.find_by_location_code(@connection, "9770")
     country = weather.countries.first
     location = country.locations.first
     @warning = location.warnings.first

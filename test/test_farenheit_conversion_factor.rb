@@ -6,11 +6,12 @@ class TestFarenheitConversionFactor < Test::Unit::TestCase
   C22P7_AS_F = (BigDecimal("22.7") * BigDecimal("1.8")) + BigDecimal("32")
   
   def setup
-    Weatherzone::Connection.connect("username", "password") do
-      "sekret" + Weatherzone::Connection.instance.password
+    keygen = lambda do
+      eval(File.open(File.dirname(__FILE__) + '/../.wzkey.rb', 'r').read)      
     end
-    Weatherzone::Connection.instance.stubs(:request).returns( File.open("test/response/everything.xml") )
-    weather     = Weather.find_by_location_code("9770", :temperature_unit => "F")
+    @connection = Weatherzone::Connection.new(ENV['WZ_USER'], ENV['WZ_PASS'], keygen, :url => ENV['WZ_URL'], :timeout_after => 10)
+    @connection.stubs(:request).returns( File.open("test/response/everything.xml") )
+    weather     = Weather.find_by_location_code(@connection, "9770", :temperature_unit => "F")
     country     = weather.countries.first
     location    = country.locations.first
     @forecast   = location.forecasts.first

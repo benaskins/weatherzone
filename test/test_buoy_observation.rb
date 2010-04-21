@@ -4,7 +4,7 @@ class TestBuoyObservation < Test::Unit::TestCase
 
   def setup
     super
-    weather = Weather.find_by_location_code("9770")
+    weather = Weather.find_by_location_code(@connection, "9770")
     country = weather.countries.first
     location = country.locations.first
     @buoy_observation = location.buoy_observations.first

@@ -17,44 +17,44 @@ class TestFinder < Test::Unit::TestCase
   
   def test_should_build_parameters
     SomeResource.expects(:build_params).with(9770, :include => [:forecast])
-    SomeResource.find_by_location_code(9770, :include => [:forecast])
+    SomeResource.find_by_location_code(@connection, 9770, :include => [:forecast])
   end
 
   def test_should_make_request
-    Weatherzone::Connection.instance.expects(:request).returns( File.open("test/response/everything.xml") )
-    SomeResource.find_by_location_code(9770, :include => [:forecast])
+    @connection.expects(:request).returns( File.open("test/response/everything.xml") )
+    SomeResource.find_by_location_code(@connection, 9770, :include => [:forecast])
   end
 
   def test_should_parse_response
     f = File.open("test/response/everything.xml")
-    Weatherzone::Connection.instance.stubs(:request).returns( f )
+    @connection.stubs(:request).returns( f )
     SomeResource.expects(:parse).with(f)
-    SomeResource.find_by_location_code(9770, :include => [:forecast])
+    SomeResource.find_by_location_code(@connection, 9770, :include => [:forecast])
   end
 
   def test_should_find_by_location_name
     SomeResource.expects(:build_params).with(nil, :params => "&lt=aploc&ln=Sydney%20NSW")
-    SomeResource.find_by_location_name("Sydney NSW")
+    SomeResource.find_by_location_name(@connection, "Sydney NSW")
   end
 
   def test_should_find_by_location_filter
     SomeResource.expects(:build_params).with(nil, :params => "&lt=twcid&lf=twccapcity")
-    SomeResource.find_by_location_filter("twccapcity")
+    SomeResource.find_by_location_filter(@connection, "twccapcity")
   end
 
   def test_should_find_by_district
     SomeResource.expects(:build_params).with(nil, :params => "&lt=twcid&dist=N00")
-    SomeResource.find_by_district("N00")
+    SomeResource.find_by_district(@connection, "N00")
   end
 
   def test_should_find_districts_by_state
     DistrictResource.expects(:build_params).with(nil, :params => "&lt=dist&state=nsw")
-    DistrictResource.find_districts_by_state("nsw")
+    DistrictResource.find_districts_by_state(@connection, "nsw")
   end
 
   def test_should_find_using_arbitrary_include
     SomeResource.expects(:build_params).with(nil, :include => [:moon_phases])
-    SomeResource.find(:include => [:moon_phases])
+    SomeResource.find(@connection, :include => [:moon_phases])
   end
   
   def test_should_include_location_parameter_string

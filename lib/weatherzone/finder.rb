@@ -43,15 +43,15 @@ module Weatherzone
             make_request(connection, build_params(location_code, options))
           end
           
-          def find_by_location_code(location_code, options={})
+          def find_by_location_code(connection, location_code, options={})
             options = options.dup
-            find(options, location_code)
+            find(connection, options, location_code)
           end
           
-          def find_by_twcid(twcid, options={})
+          def find_by_twcid(connection, twcid, options={})
             options = options.dup
             options.merge!(:params => "&lt=twcid&lc=#{twcid}")
-            find(options)
+            find(connection, options)
           end
 
           def find_by_location_name(connection, location_name, options={})
@@ -61,40 +61,40 @@ module Weatherzone
             find(connection, options)
           end
 
-          def find_by_swellnet_code(swellnet_code, options={})
+          def find_by_swellnet_code(connection, swellnet_code, options={})
             options = options.dup
             options.merge!(:params => "&lt=swellnet&lc=#{swellnet_code}")
-            find(options)
+            find(connection, options)
           end
 
-          def find_by_location_filter(filter, options={})
+          def find_by_location_filter(connection, filter, options={})
             options = options.dup
             options.merge!(:params => "&lt=twcid&lf=#{filter}")
-            find(options)
+            find(connection, options)
           end
           
-          def find_by_district(district_code, options={})
+          def find_by_district(connection, district_code, options={})
             options = options.dup
             options.merge!(:params => "&lt=twcid&dist=#{district_code}")
-            find(options)            
+            find(connection, options)            
           end
 
-          def find_districts_by_state(state, options={})
+          def find_districts_by_state(connection, state, options={})
             options = options.dup
             options.merge!(:params => "&lt=dist&state=#{state}")
-            find(options).countries.first.locations
+            find(connection, options).countries.first.locations
           end
 
-          def find_radars_by_state(state, options={})
+          def find_radars_by_state(connection, state, options={})
             options = options.dup
             options.merge!(:params => "&lt=radar&links=1&ra=1&state=#{state}")
-            find(options).countries.first.locations
+            find(connection, options).countries.first.locations
           end
           
-          def find_by_radar_code(radar_code, options={})
+          def find_by_radar_code(connection, radar_code, options={})
             options = options.dup
             options.merge!(:params => "&lt=radar&lc=#{radar_code}&links=1&ra=1")
-            find(options)   
+            find(connection, options)   
           end
 
           def build_params(location_code, options)
