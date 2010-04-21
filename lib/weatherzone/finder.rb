@@ -38,9 +38,9 @@ module Weatherzone
             parse(File.open(file_name))
           end
           
-          def find(options, location_code=nil)
-            set_options(options)
-            make_request(build_params(location_code, options))
+          def find(connection, options, location_code=nil)
+            set_options(connection, options)
+            make_request(connection, build_params(location_code, options))
           end
           
           def find_by_location_code(location_code, options={})
@@ -54,11 +54,11 @@ module Weatherzone
             find(options)
           end
 
-          def find_by_location_name(location_name, options={})
+          def find_by_location_name(connection, location_name, options={})
             options = options.dup
             location_name = location_name.gsub(" ", "%20").gsub("-", "%20")
             options.merge!(:params => "&lt=aploc&ln=#{location_name}")
-            find(options)
+            find(connection, options)
           end
 
           def find_by_swellnet_code(swellnet_code, options={})
@@ -107,13 +107,13 @@ module Weatherzone
           end
 
           protected
-          def set_options(options)
-            @@connection.settings.weather_class ||= self
+          def set_options(connection, options)
+            connection.settings.weather_class ||= self
             self.temperature_unit = options.delete(:temperature_unit)
           end
 
-          def make_request(params)
-            response = @@connection.request(params)
+          def make_request(connection, params)
+            response = connection.request(params)
             parse(response)
           end
           

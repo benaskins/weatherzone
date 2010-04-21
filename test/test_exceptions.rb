@@ -2,11 +2,16 @@ require File.dirname(__FILE__) + '/support/dependencies.rb'
 
 class TestExceptions < Test::Unit::TestCase
 
+  # These tests connect to the weatherzone webservice and therefore require your webservice credentials to function as expected.
+  # Set your credentials using the WZ_USER and WZ_PASS environment variables.
+  # Set your web service instance url using the WZ_URL envionment variable.
+  # Create a file .wzkey.rb in the root of this project containing your keygen algorithm.
+
   def setup
-    Weatherzone::Connection.connect(ENV['WZ_USER'], ENV['WZ_PASS'], :url => ENV['WZ_URL'], :timeout_after => 10) do
-      eval(File.open(File.dirname(__FILE__) + '/../.wzkey.rb', 'r').read)
+    keygen = lambda do
+      eval(File.open(File.dirname(__FILE__) + '/../.wzkey.rb', 'r').read)      
     end
-    @connection = Weatherzone::Connection.instance
+    @connection = Weatherzone::Connection.new(ENV['WZ_USER'], ENV['WZ_PASS'], keygen, :url => ENV['WZ_URL'], :timeout_after => 10)
   end
   
   def test_should_have_credentials
@@ -36,7 +41,7 @@ class TestExceptions < Test::Unit::TestCase
   def test_connection_should_raise_request_failed_on_timeout
     @connection.timeout_after = 0.1
     assert_raises Weatherzone::RequestFailed do
-      Weather.find_by_location_name("Sydney")
+      Weather.find_by_location_name(@connection, "Sydney")
     end
   end
     
