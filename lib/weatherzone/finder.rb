@@ -33,8 +33,6 @@ module Weatherzone
 
     def self.included(klass)
       klass.class_eval do
-        @@connection = Weatherzone::Connection.instance
-
         class << self
           def parse_file(file_name)
             parse(File.open(file_name))

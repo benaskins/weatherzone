@@ -3,10 +3,8 @@ require File.dirname(__FILE__) + '/test_helper.rb'
 class TestConnection < Test::Unit::TestCase
 
   def setup
-    Weatherzone::Connection.connect("username", "password", :url => "http://ws1.theweather.com.au/") do
-      "sekret" + Weatherzone::Connection.instance.password
-    end
-    @connection = Weatherzone::Connection.instance
+    keygen = lambda { "sekret" + password }
+    @connection = Weatherzone::Connection.new("username", "password", keygen, :url => "http://ws1.theweather.com.au/")
   end
 
   def test_should_set_username
