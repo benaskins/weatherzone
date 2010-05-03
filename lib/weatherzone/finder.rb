@@ -28,7 +28,8 @@ module Weatherzone
       :surf_report => "surf_rpt=2",
       :climate_periods => "climate=1(months=12)",
       :related_locations => "locdet=1",
-      :buoy_observations => "buoy=1(period=24)"
+      :buoy_observations => "buoy=1(period=24)",
+      :snow_reports => "snow=3"
     } 
 
     def self.included(klass)
@@ -64,6 +65,12 @@ module Weatherzone
           def find_by_swellnet_code(connection, swellnet_code, options={})
             options = options.dup
             options.merge!(:params => "&lt=swellnet&lc=#{swellnet_code}")
+            find(connection, options)
+          end
+
+          def find_snow_resort(connection, resort_code, options={})
+            options = options.dup
+            options.merge!(:params => "&lt=snow&lc=#{resort_code}")
             find(connection, options)
           end
 
