@@ -40,8 +40,9 @@ module Weatherzone
           end
           
           def find(connection, options, location_code=nil)
+            url_only = options.delete(:url_only)
             set_options(connection, options)
-            make_request(connection, build_params(location_code, options))
+            make_request(connection, build_params(location_code, options), url_only)
           end
           
           def find_by_location_code(connection, location_code, options={})
@@ -119,7 +120,8 @@ module Weatherzone
             self.temperature_unit = options.delete(:temperature_unit)
           end
 
-          def make_request(connection, params)
+          def make_request(connection, params, url_only)
+            return connection.wz_url_for(params) if url_only
             response = connection.request(params)
             parse(response)
           end
