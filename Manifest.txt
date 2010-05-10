@@ -36,13 +36,6 @@ lib/weatherzone/resources/snow_report.rb
 lib/weatherzone/resources/surf_report.rb
 lib/weatherzone/resources/warning.rb
 lib/weatherzone/resources/weather.rb
-lib/vendor/openuri_memcached/History.txt
-lib/vendor/openuri_memcached/License.txt
-lib/vendor/openuri_memcached/README.markdown
-lib/vendor/openuri_memcached/lib/openuri_memcached.rb
-lib/vendor/openuri_memcached/lib/openuri/common.rb
-lib/vendor/openuri_memcached/lib/openuri/memcached.rb
-lib/vendor/openuri_memcached/lib/openuri/rails-cache.rb
 lib/tzinfo/definitions/Australia/CDT.rb
 lib/tzinfo/definitions/Australia/CST.rb
 lib/tzinfo/definitions/Australia/EDT.rb
