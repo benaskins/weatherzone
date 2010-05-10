@@ -30,6 +30,7 @@ module Weatherzone
       @keygen        = keygen
       @logger        = options[:logger]
       @timeout_after = options[:timeout_after] || DEFAULT_TIMEOUT_AFTER
+      @http          = Net::HTTP::Persistent.new
     end
     
     def self.settings
@@ -53,11 +54,11 @@ module Weatherzone
     end
     
     def request(params)
-      url = wz_url_for(params)
-      info("GET #{url}")
+      uri = URI.parse(wz_url_for(params))
+      info("GET #{uri}")
       timeout(self.timeout_after) do
-        response = OpenURI::open(url)
-        response.read
+        response = @http.request(uri)
+        response.body
       end
     rescue Timeout::Error, SocketError => e
       error("webservice connection failed #{e}")
