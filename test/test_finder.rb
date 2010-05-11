@@ -27,7 +27,7 @@ class TestFinder < Test::Unit::TestCase
 
   def test_should_parse_response
     f = File.open("test/response/everything.xml")
-    @connection.stubs(:request).returns( f )
+    @connection.stubs(:request).returns(f)
     SomeResource.expects(:parse).with(f)
     SomeResource.find_by_location_code(@connection, 9770, :include => [:forecast])
   end
@@ -56,7 +56,7 @@ class TestFinder < Test::Unit::TestCase
     SomeResource.expects(:build_params).with(nil, :include => [:moon_phases])
     SomeResource.find(@connection, :include => [:moon_phases])
   end
-  
+
   def test_should_include_location_parameter_string
     assert_equal "&lc=9770", SomeResource.build_params(9770,{})
   end

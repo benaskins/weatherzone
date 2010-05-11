@@ -81,14 +81,25 @@
             </resort_summary>
             <lifts_open>0</lifts_open>
             <lifts>
-            <lift time="2009-07-28T07:49:00" tz="EST" name="Bass" status="standby"/>
-            <lift time="2009-07-28T07:49:00" tz="EST" name="Bills" status="closed"/>
-            <lift time="2009-07-28T07:49:00" tz="EST" name="Creek" status="closed"/>
-            <lift time="2009-07-28T07:49:00" tz="EST" name="Fannys" status="closed"/>
-            <lift time="2009-07-28T07:49:00" tz="EST" name="Giblin" status="closed"/>
-            <lift time="2009-07-28T07:49:00" tz="EST" name="Summit" status="standby"/>
-            <lift time="2009-07-28T07:49:00" tz="EST" name="Village" status="standby"/>
+              <lift time="2009-07-28T07:49:00" tz="EST" name="Bass" status="standby"/>
+              <lift time="2009-07-28T07:49:00" tz="EST" name="Bills" status="closed"/>
+              <lift time="2009-07-28T07:49:00" tz="EST" name="Creek" status="closed"/>
+              <lift time="2009-07-28T07:49:00" tz="EST" name="Fannys" status="closed"/>
+              <lift time="2009-07-28T07:49:00" tz="EST" name="Giblin" status="closed"/>
+              <lift time="2009-07-28T07:49:00" tz="EST" name="Summit" status="standby"/>
+              <lift time="2009-07-28T07:49:00" tz="EST" name="Village" status="standby"/>
             </lifts>
+            <cams> 
+              <cam time="2010-04-03T00:00:00" tz="EST" name="Blue Cow" url="" filename="snowcam_perisher7.jpg" thumbnail_filename="snowcam_th_perisher7.jpg" status="Y"/> 
+              <cam time="2010-04-03T00:00:00" tz="EST" name="Centre Valley" url="" filename="snowcam_perisher1.jpg" thumbnail_filename="snowcam_th_perisher1.jpg" status="N"/> 
+              <cam time="2010-04-03T00:00:00" tz="EST" name="Front Valley" url="" filename="snowcam_perisher2.jpg" thumbnail_filename="snowcam_th_perisher2.jpg" status="N"/> 
+              <cam time="2010-04-03T00:00:00" tz="EST" name="Guthega (backcountry)" url="" filename="snowcam_perisher4.jpg" thumbnail_filename="snowcam_th_perisher4.jpg" status="N"/> 
+              <cam time="2010-04-03T00:00:00" tz="EST" name="Half Pipe" url="" filename="snowcam_perisher5.jpg" thumbnail_filename="snowcam_th_perisher5.jpg" status="N"/> 
+              <cam time="2010-04-03T00:00:00" tz="EST" name="Mt. Perisher" url="" filename="snowcam_perisher8.jpg" thumbnail_filename="snowcam_th_perisher8.jpg" status="N"/> 
+              <cam time="2010-04-03T00:00:00" tz="EST" name="Smiggin Holes" url="" filename="snowcam_perisher3.jpg" thumbnail_filename="snowcam_th_perisher3.jpg" status="N"/> 
+              <cam time="2010-04-03T00:00:00" tz="EST" name="The Ridge" url="" filename="snowcam_perisher9.jpg" thumbnail_filename="snowcam_th_perisher9.jpg" status="Y"/> 
+              <cam time="2010-04-03T00:00:00" tz="EST" name="Village 8 (top)" url="" filename="snowcam_perisher6.jpg" thumbnail_filename="snowcam_th_perisher6.jpg" status="Y"/> 
+            </cams> 
           </snow_report>   
           <surf_report>
             <issue_day_name>Tuesday</issue_day_name>

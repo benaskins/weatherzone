@@ -28,7 +28,8 @@ module Weatherzone
       :surf_report => "surf_rpt=2",
       :climate_periods => "climate=1(months=12)",
       :related_locations => "locdet=1",
-      :buoy_observations => "buoy=1(period=24)"
+      :buoy_observations => "buoy=1(period=24)",
+      :snow_reports => "snow=3"
     } 
 
     def self.included(klass)
@@ -39,8 +40,9 @@ module Weatherzone
           end
           
           def find(connection, options, location_code=nil)
+            url_only = options.delete(:url_only)
             set_options(connection, options)
-            make_request(connection, build_params(location_code, options))
+            make_request(connection, build_params(location_code, options), url_only)
           end
           
           def find_by_location_code(connection, location_code, options={})
@@ -64,6 +66,12 @@ module Weatherzone
           def find_by_swellnet_code(connection, swellnet_code, options={})
             options = options.dup
             options.merge!(:params => "&lt=swellnet&lc=#{swellnet_code}")
+            find(connection, options)
+          end
+
+          def find_snow_resort(connection, resort_code, options={})
+            options = options.dup
+            options.merge!(:params => "&lt=snow&lc=#{resort_code}")
             find(connection, options)
           end
 
@@ -112,7 +120,8 @@ module Weatherzone
             self.temperature_unit = options.delete(:temperature_unit)
           end
 
-          def make_request(connection, params)
+          def make_request(connection, params, url_only)
+            return connection.wz_url_for(params) if url_only
             response = connection.request(params)
             parse(response)
           end

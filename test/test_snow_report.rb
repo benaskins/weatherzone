@@ -18,6 +18,10 @@ class TestSnowReport < Test::Unit::TestCase
     assert @snow_report.lifts.any?
   end
 
+  def test_should_have_many_cameras
+    assert @snow_report.cameras.any?
+  end
+
   def test_should_not_have_nil_attributes
     [:day_name, :issue_time_local, :visibility_text, :road_conditions, :primary_surface, :snow_conditions, :snow_cover, :snow_depth_avg_cm, :snow_depth_new_cm, 
       :snow_making, :grooming, :last_snowfall_date, :resort_summary, :lifts_open].each do |attr_name|
