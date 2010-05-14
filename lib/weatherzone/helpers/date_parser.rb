@@ -7,7 +7,9 @@ module Weatherzone
           def self.interpret_as_date(*methods)
             methods.each do |method_name|
               define_method method_name do
-                Date.parse(instance_variable_get("@#{method_name}"))
+                if value = instance_variable_get("@#{method_name}")
+                  Date.parse(value)
+                end
               end
             end
           end
