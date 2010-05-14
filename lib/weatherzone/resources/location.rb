@@ -29,6 +29,9 @@ class Location < Weatherzone::Resource
   element :link, :value => :url, :as => :satellite_animator, :with => {:type => "satellite animator"}
   element :link, :value => :url, :as => :satellite_still, :with => {:type => "satellite still"}
 
+  element :related_location, :value => :code, :as => :district_code, :with => {:type => "DIST"}
+  element :related_location, :value => :name, :as => :district_name, :with => {:type => "DIST"}
+
   # override base ruby Object#type
   attr_reader :type
 

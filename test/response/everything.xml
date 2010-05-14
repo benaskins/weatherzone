@@ -3259,6 +3259,8 @@
               <precis>Isolated showers on the south coast, generally fine elsewhere. Northeast to southeast winds on the coast, southwest winds inland. </precis>            </state_forecast>
           </state_forecasts>
           <district_forecasts>
+            <related_location type="DIST" code="N00" name="Sydney" state="NSW"> 
+            </related_location> 
             <district_forecast period="1">
               <period_name>Wednesday</period_name>
               <precis>Fine. Cloudy morning then afternoon lengthy sunny periods. Light to moderate south to southeast winds.</precis>

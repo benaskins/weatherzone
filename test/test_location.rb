@@ -67,4 +67,9 @@ class TestLocation < Test::Unit::TestCase
     assert @location.buoy_observations.any?
   end
   
+  def test_should_have_related_district
+    assert_equal "N00", @location.district_code
+    assert_equal "Sydney", @location.district_name
+  end
+  
 end

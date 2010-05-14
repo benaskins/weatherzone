@@ -90,13 +90,13 @@ module Weatherzone
           def find_districts_by_state(connection, state, options={})
             options = options.dup
             options.merge!(:params => "&lt=dist&state=#{state}")
-            find(connection, options).countries.first.locations
+            options[:url_only] ? find(connection, options) : find(connection, options).countries.first.locations
           end
 
           def find_radars_by_state(connection, state, options={})
             options = options.dup
             options.merge!(:params => "&lt=radar&links=1&ra=1&state=#{state}")
-            find(connection, options).countries.first.locations
+            options[:url_only] ? find(connection, options) : find(connection, options).countries.first.locations
           end
           
           def find_by_radar_code(connection, radar_code, options={})
