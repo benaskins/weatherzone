@@ -22,5 +22,5 @@ require 'weatherzone/helpers/date_parser'
 require 'weatherzone/helpers/units'
 
 module Weatherzone
-  VERSION = '0.8.3'
+  VERSION = '0.8.4'
 end

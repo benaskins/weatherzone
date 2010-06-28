@@ -15,6 +15,7 @@ lib/weatherzone/helpers/units.rb
 lib/weatherzone/resources/buoy_observation.rb
 lib/weatherzone/resources/almanac.rb
 lib/weatherzone/resources/almanac_period.rb
+lib/weatherzone/resources/camera.rb
 lib/weatherzone/resources/conditions.rb
 lib/weatherzone/resources/country.rb
 lib/weatherzone/resources/daily_observation.rb
