@@ -8,7 +8,6 @@ require 'timeout'
 require 'nokogiri'
 require 'sax-machine'
 require 'tzinfo'
-require 'net/http/persistent'
 
 unless defined?(ActiveSupport)
   require 'ext/class'
@@ -22,5 +21,5 @@ require 'weatherzone/helpers/date_parser'
 require 'weatherzone/helpers/units'
 
 module Weatherzone
-  VERSION = '0.8.4'
+  VERSION = '0.8.5'
 end

@@ -1,4 +1,5 @@
 require 'singleton'
+require 'open-uri' 
 
 module Weatherzone  
   
@@ -30,7 +31,6 @@ module Weatherzone
       @keygen        = keygen
       @logger        = options[:logger]
       @timeout_after = options[:timeout_after] || DEFAULT_TIMEOUT_AFTER
-      @http          = Net::HTTP::Persistent.new
     end
     
     def self.settings
@@ -57,8 +57,7 @@ module Weatherzone
       uri = URI.parse(wz_url_for(params))
       info("GET #{uri}")
       timeout(self.timeout_after) do
-        response = @http.request(uri)
-        response.body
+        uri.read
       end
     rescue Timeout::Error, SocketError => e
       error("webservice connection failed #{e}")
