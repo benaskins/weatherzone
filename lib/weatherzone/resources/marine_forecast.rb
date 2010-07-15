@@ -1,3 +1,5 @@
+require 'weatherzone/resources/marine_summary'
+
 class MarineForecast < Weatherzone::Resource
   include Weatherzone::Helpers::Units
   

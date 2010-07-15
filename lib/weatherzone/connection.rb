@@ -1,5 +1,6 @@
 require 'singleton'
 require 'open-uri' 
+require 'logger'
 
 module Weatherzone  
   

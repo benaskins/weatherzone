@@ -1,3 +1,5 @@
+require 'weatherzone/resources/point_forecast'
+
 class Forecast < Weatherzone::Resource
 
   include Weatherzone::Helpers::Units

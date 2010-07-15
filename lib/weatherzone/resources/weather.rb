@@ -1,3 +1,7 @@
+require 'weatherzone/resources/country'
+require 'weatherzone/resources/moon_phase'
+require 'weatherzone/resources/news_item'
+
 class Weather < Weatherzone::Resource
   include Weatherzone::Finder
   elements :country, :as => :countries, :class => Country

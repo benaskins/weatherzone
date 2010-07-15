@@ -1,3 +1,21 @@
+%w[
+  forecast
+  conditions
+  district_forecast
+  state_forecast
+  marine_forecast
+  surf_report
+  snow_report
+  historical_observation
+  daily_observation
+  climate_period
+  warning
+  almanac
+  tide
+  buoy_observation
+  image
+].each {|r| require "weatherzone/resources/#{r}"}
+
 class Location < Weatherzone::Resource  
   attributes :type, :code, :name, :state
 
