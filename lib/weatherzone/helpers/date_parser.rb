@@ -18,14 +18,14 @@ module Weatherzone
             methods.each do |method_name|
               has_attribute :tz, :on_elements => methods
               define_method "#{method_name}_utc" do
-                tz = TZInfo::Timezone.get("Australia/#{send("#{method_name}_tz")}")
-                if value = instance_variable_get("@#{method_name}")
+                if (tz_identifier = send("#{method_name}_tz")) && (value = instance_variable_get("@#{method_name}"))
+                  tz = TZInfo::Timezone.get("Australia/#{tz_identifier}")
                   tz.local_to_utc(Time.parse(value))
                 end
               end
               define_method method_name do
-                if value = send("#{method_name}_utc")
-                  tz = TZInfo::Timezone.get("Australia/#{send("#{method_name}_tz")}")
+                if (tz_identifier = send("#{method_name}_tz")) && (value = send("#{method_name}_utc"))
+                  tz = TZInfo::Timezone.get("Australia/#{tz_identifier}")
                   tz.utc_to_local value
                 end
               end
