@@ -83,7 +83,7 @@ module Weatherzone
           
           def find_by_district(connection, district_code, options={})
             options = options.dup
-            options.merge!(:params => "&lt=twcid&dist=#{district_code}")
+            options.merge!(:params => "&lt=twcid&dist=#{district_code}&lf=twcfcast")
             find(connection, options)            
           end
 
