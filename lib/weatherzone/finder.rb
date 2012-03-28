@@ -108,6 +108,7 @@ module Weatherzone
           def build_params(location_code, options)
             params = location_code ? "&lc=#{location_code}" : ""
             params  += options.delete(:params)                  if options[:params]
+            params  += options.delete(:sr_params)               if options[:sr_params]
             params  += include_params(options.delete(:include)) if options[:include]
             params  += include_image(options.delete(:image))    if options[:image]
             params  += parse_params(options) unless options.empty?
