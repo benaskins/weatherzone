@@ -4,7 +4,7 @@ class TestPointForecast < Test::Unit::TestCase
 
   def setup
     super
-    weather = Weather.find_by_location_code(@connection, "9770")
+    weather = Weatherzone::Weather.find_by_location_code(@connection, "9770")
     country = weather.countries.first
     location = country.locations.first
     forecast = location.forecasts.first
@@ -12,7 +12,7 @@ class TestPointForecast < Test::Unit::TestCase
   end
   
   def test_should_be_a_point_forecast
-    assert_kind_of PointForecast, @point_forecast
+    assert_kind_of Weatherzone::PointForecast, @point_forecast
   end
 
   def test_should_not_have_nil_attributes

@@ -1,3 +1,10 @@
-class Camera < Weatherzone::Resource
-  attributes :time, :tz, :name, :status, :filename, :thumbnail_filename
+module Weatherzone
+  class Camera < Weatherzone::Resource
+    attribute :time
+    attribute :tz
+    attribute :name
+    attribute :status
+    attribute :filename
+    attribute :thumbnail_filename
+  end
 end

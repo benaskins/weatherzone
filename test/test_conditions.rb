@@ -4,14 +4,14 @@ class TestConditions < Test::Unit::TestCase
 
   def setup
     super
-    weather = Weather.find_by_location_code(@connection, "9770")
+    weather = Weatherzone::Weather.find_by_location_code(@connection, "9770")
     country = weather.countries.first
     location = country.locations.first
     @conditions = location.conditions.first
   end
   
   def test_should_be_a_conditions
-    assert_kind_of Conditions, @conditions
+    assert_kind_of Weatherzone::Conditions, @conditions
   end
 
   def test_should_not_have_nil_attributes

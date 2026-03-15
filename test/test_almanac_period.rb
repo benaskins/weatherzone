@@ -4,7 +4,7 @@ class TestAlmanacPeriod < Test::Unit::TestCase
 
   def setup
     super
-    weather = Weather.find_by_location_code(@connection, "9770")
+    weather = Weatherzone::Weather.find_by_location_code(@connection, "9770")
     country = weather.countries.first
     location = country.locations.first
     almanac = location.almanacs.first
@@ -12,7 +12,7 @@ class TestAlmanacPeriod < Test::Unit::TestCase
   end
   
   def test_should_be_a_almanac_period
-    assert_kind_of AlmanacPeriod, @almanac_period
+    assert_kind_of Weatherzone::AlmanacPeriod, @almanac_period
   end
 
   def test_should_not_have_nil_attributes

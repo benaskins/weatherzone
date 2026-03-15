@@ -9,17 +9,14 @@ require 'nokogiri'
 require 'sax-machine'
 require 'tzinfo'
 
-unless defined?(ActiveSupport)
-  require 'ext/class'
-  require 'ext/object'
-end
-
+require 'active_support/core_ext'
 require 'weatherzone/finder'
 require 'weatherzone/resource'
 require 'weatherzone/helpers/almanac_element'
 require 'weatherzone/helpers/date_parser'
 require 'weatherzone/helpers/units'
+require 'weatherzone/resources'
 
 module Weatherzone
-  VERSION = '0.8.8'
+  VERSION = '0.9.0'
 end

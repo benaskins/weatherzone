@@ -8,7 +8,7 @@ class TestFinder < Test::Unit::TestCase
 
   class DistrictResource < Weatherzone::Resource
     include Weatherzone::Finder
-    elements :country, :as => :countries, :class => Country
+    elements :country, :as => :countries, :class => Weatherzone::Country
   end
 
   def test_should_respond_to_find_by_location_code

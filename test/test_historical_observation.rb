@@ -4,14 +4,14 @@ class TestHistoricalObservtion < Test::Unit::TestCase
 
   def setup
     super
-    weather = Weather.find_by_location_code(@connection, "9770")
+    weather = Weatherzone::Weather.find_by_location_code(@connection, "9770")
     country = weather.countries.first
     location = country.locations.first
     @historical_observation = location.historical_observations.first
   end
   
   def test_should_be_a_historical_observation
-    assert_kind_of HistoricalObservation, @historical_observation
+    assert_kind_of Weatherzone::HistoricalObservation, @historical_observation
   end
 
   def test_should_not_have_nil_attributes

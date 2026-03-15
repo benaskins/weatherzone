@@ -4,14 +4,14 @@ class TestBuoyObservation < Test::Unit::TestCase
 
   def setup
     super
-    weather = Weather.find_by_location_code(@connection, "9770")
+    weather = Weatherzone::Weather.find_by_location_code(@connection, "9770")
     country = weather.countries.first
     location = country.locations.first
     @buoy_observation = location.buoy_observations.first
   end
   
   def test_should_be_a_tide
-    assert_kind_of BuoyObservation, @buoy_observation
+    assert_kind_of Weatherzone::BuoyObservation, @buoy_observation
   end
 
   def test_should_not_have_nil_attributes

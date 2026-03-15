@@ -3,17 +3,14 @@ require File.dirname(__FILE__) + '/test_helper.rb'
 class TestCountry < Test::Unit::TestCase
 
   def setup
-    keygen = lambda do
-      eval(File.open(File.dirname(__FILE__) + '/../.wzkey.rb', 'r').read)      
-    end
-    @connection = Weatherzone::Connection.new(ENV['WZ_USER'], ENV['WZ_PASS'], keygen, :url => ENV['WZ_URL'], :timeout_after => 10)    
+    super
     @connection.stubs(:request).returns( File.open("test/response/everything.xml")  )
-    weather = Weather.find_by_location_code(@connection, "9770")
+    weather = Weatherzone::Weather.find_by_location_code(@connection, "9770")
     @country = weather.countries.first
   end
   
   def test_should_be_a_country
-    assert_kind_of Country, @country
+    assert_kind_of Weatherzone::Country, @country
   end
 
   def test_should_not_have_nil_attributes
@@ -27,7 +24,7 @@ class TestCountry < Test::Unit::TestCase
   end
 
   def test_locations_should_be_locations
-    assert_kind_of Location, @country.locations.first
+    assert_kind_of Weatherzone::Location, @country.locations.first
   end
   
 end

@@ -4,11 +4,11 @@ class TestResponseParser < Test::Unit::TestCase
 
   def setup
     response = File.open("test/response/everything.xml")
-    @weather = Weather.parse(response)
+    @weather = Weatherzone::Weather.parse(response)
   end
   
   def test_should_be_an_instance_of_weather
-    assert_kind_of Weather, @weather
+    assert_kind_of Weatherzone::Weather, @weather
   end
 
   def test_should_have_countries
@@ -16,7 +16,7 @@ class TestResponseParser < Test::Unit::TestCase
   end
   
   def test_countries_should_be_countries
-    assert_kind_of Country, @weather.countries.first
+    assert_kind_of Weatherzone::Country, @weather.countries.first
   end
   
 end

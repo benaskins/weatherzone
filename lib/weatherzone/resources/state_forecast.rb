@@ -1,4 +1,6 @@
-class StateForecast < Weatherzone::Resource
-  attributes :period
-  has_elements :period_name, :precis
+module Weatherzone
+  class StateForecast < Weatherzone::Resource
+    attribute :period
+    has_elements :period_name, :precis
+  end
 end

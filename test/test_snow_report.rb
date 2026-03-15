@@ -4,14 +4,14 @@ class TestSnowReport < Test::Unit::TestCase
 
   def setup
     super
-    weather = Weather.find_by_location_code(@connection, "9770")
+    weather = Weatherzone::Weather.find_by_location_code(@connection, "9770")
     country = weather.countries.first
     location = country.locations.first
     @snow_report = location.snow_reports.first
   end
   
   def test_should_be_a_snow_report
-    assert_kind_of SnowReport, @snow_report
+    assert_kind_of Weatherzone::SnowReport, @snow_report
   end
 
   def test_should_have_many_lifts

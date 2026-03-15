@@ -3,14 +3,14 @@ require File.dirname(__FILE__) + '/test_helper.rb'
 class TestAlmanac < Test::Unit::TestCase
   def setup
     super
-    weather = Weather.find_by_location_code(@connection, "9770")
+    weather = Weatherzone::Weather.find_by_location_code(@connection, "9770")
     country = weather.countries.first
     location = country.locations.first
     @almanac = location.almanacs.first
   end
   
   def test_should_be_a_almanac
-    assert_kind_of Almanac, @almanac
+    assert_kind_of Weatherzone::Almanac, @almanac
   end
 
   def test_should_not_have_nil_attributes

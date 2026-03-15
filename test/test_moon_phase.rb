@@ -3,18 +3,15 @@ require File.dirname(__FILE__) + '/test_helper.rb'
 class TestMoonPhase < Test::Unit::TestCase
 
   def setup
-    keygen = lambda do
-      eval(File.open(File.dirname(__FILE__) + '/../.wzkey.rb', 'r').read)      
-    end
-    @connection = Weatherzone::Connection.new(ENV['WZ_USER'], ENV['WZ_PASS'], keygen, :url => ENV['WZ_URL'], :timeout_after => 10)
+    super
     @connection.stubs(:request).returns( File.open("test/response/moon.xml") )
-    weather = Weather.find_by_location_code(@connection, "9770")
+    weather = Weatherzone::Weather.find_by_location_code(@connection, "9770")
     @moon_phases = weather.moon_phases
     @moon_phase = @moon_phases.first
   end
   
   def test_should_be_a_moon_phase
-    assert_kind_of MoonPhase, @moon_phase
+    assert_kind_of Weatherzone::MoonPhase, @moon_phase
   end
 
   def test_should_not_have_nil_attributes

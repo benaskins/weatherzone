@@ -4,14 +4,14 @@ class TestClimatePeriod < Test::Unit::TestCase
 
   def setup
     super
-    weather = Weather.find_by_location_code(@connection, "9770")
+    weather = Weatherzone::Weather.find_by_location_code(@connection, "9770")
     country = weather.countries.first
     location = country.locations.first
     @climate_period = location.climate_periods.first
   end
   
   def test_should_be_a_climate_period
-    assert_kind_of ClimatePeriod, @climate_period
+    assert_kind_of Weatherzone::ClimatePeriod, @climate_period
   end
 
   def test_should_not_have_nil_attributes

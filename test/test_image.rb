@@ -4,14 +4,14 @@ class TestImage < Test::Unit::TestCase
 
   def setup
     super
-    weather = Weather.find_by_location_code(@connection, "9770")
+    weather = Weatherzone::Weather.find_by_location_code(@connection, "9770")
     country = weather.countries.first
     location = country.locations.first
     @image = location.synoptic_charts.first
   end
   
   def test_should_be_an_image
-    assert_kind_of Image, @image
+    assert_kind_of Weatherzone::Image, @image
   end
 
   def test_should_not_have_nil_attributes

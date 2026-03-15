@@ -4,14 +4,14 @@ class TestDistrictForecast < Test::Unit::TestCase
 
   def setup
     super
-    weather = Weather.find_by_location_code(@connection, "9770")
+    weather = Weatherzone::Weather.find_by_location_code(@connection, "9770")
     country = weather.countries.first
     location = country.locations.first
     @district_forecast = location.district_forecasts.first
   end
   
   def test_should_be_a_district_forecast
-    assert_kind_of DistrictForecast, @district_forecast
+    assert_kind_of Weatherzone::DistrictForecast, @district_forecast
   end
 
   def test_should_not_have_nil_attributes

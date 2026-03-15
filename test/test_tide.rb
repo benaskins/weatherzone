@@ -4,14 +4,14 @@ class TestTide < Test::Unit::TestCase
 
   def setup
     super
-    weather = Weather.find_by_location_code(@connection, "9770")
+    weather = Weatherzone::Weather.find_by_location_code(@connection, "9770")
     country = weather.countries.first
     location = country.locations.first
     @tide = location.tides.first
   end
   
   def test_should_be_a_tide
-    assert_kind_of Tide, @tide
+    assert_kind_of Weatherzone::Tide, @tide
   end
 
   def test_should_not_have_nil_attributes

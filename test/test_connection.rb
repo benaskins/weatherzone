@@ -2,9 +2,9 @@ require File.dirname(__FILE__) + '/test_helper.rb'
 
 class TestConnection < Test::Unit::TestCase
 
-  def setup
-    keygen = lambda { "sekret" + password }
-    @connection = Weatherzone::Connection.new("username", "password", keygen, :url => "http://ws1.theweather.com.au/")
+  def setup    
+    keygen = Proc.new { 12345 }
+    @connection = Weatherzone::Connection.new("username", "password", :keygen => keygen, :logger => Logger.new(nil))
   end
 
   def test_should_set_username
@@ -15,12 +15,10 @@ class TestConnection < Test::Unit::TestCase
     assert_equal "password", @connection.password
   end
 
-  def test_should_set_key
-    assert_equal "sekretpassword", @connection.key
-  end
-
   def test_should_provide_base_url
-    assert_equal "http://ws1.theweather.com.au/?u=username&k=sekretpassword", @connection.base_url
+    key = 12345 # On 20110101 the key should be this value
+    hash = Digest::MD5.hexdigest "#{key}password"
+    assert_equal "http://ws1.theweather.com.au/?u=username&k=#{hash}", @connection.base_url
   end
   
 end
